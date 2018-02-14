@@ -16,6 +16,31 @@ body {
   min-height: 95vh;
 }
 
+/* **** LINKS ***** */
+
+a {
+  text-decoration: none;
+  font-smoothing: antialiased;
+}
+
+a:visited, a:active {
+  color: $grey;
+}
+
+a:hover {
+  color: $navy;
+  font-weight: bold;
+  font-size: 1.5em;
+  transition: 0.5s;
+}
+
+a:focus {
+  color: $yellow;
+}
+
+/* **** /LINKS ***** */
+
+
 /* **** SITE HEADER ***** */
 
 .header__container {
@@ -39,13 +64,26 @@ body {
 
 /* **** FOOTER ***** */
 footer {
-  background-color: $olive;
-  color: $creme;
-  padding: 20px 50px;
+  background-color: $peach;
+  color: $navy;
+  padding: 30px 50px;
+  font-size: 0.8rem;
 
   ol {
     display: flex;
     list-style: none;
+    justify-content: space-around;
+    font-size: 2rem;
+  }
+
+  li { // setting these so the icons don't move the footer when they grow
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+  }
+
+  .footer__text {
+    float: right;
   }
 }
 /* **** /FOOTER ***** */
