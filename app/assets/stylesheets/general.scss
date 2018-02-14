@@ -1,0 +1,35 @@
+@import 'colours';
+
+html {
+  background-color: $creme;
+  font-family: 'Montserrat', sans-serif;
+  color: $navy;
+}
+
+.wrapper {
+  width: 90%;
+  margin: auto;
+}
+
+/* **** SITE HEADER ***** */
+
+.header__container {
+    display: flex;
+
+    h1 {
+      font-size: 1.2rem;
+    }
+}
+
+.site-header__nav-ul {
+  display: flex;
+  list-style: none;
+
+  li {
+    margin: 0 10px;
+  }
+
+}
+
+
+/* **** /SITE HEADER ***** */
