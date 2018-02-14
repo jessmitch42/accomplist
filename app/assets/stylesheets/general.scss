@@ -44,6 +44,8 @@ a:focus {
 
 .header__container {
     display: flex;
+    justify-content: space-between;
+    border-bottom: 4px solid $navy;
 
     h1 {
       font-size: 1.2rem;
