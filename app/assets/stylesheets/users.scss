@@ -1,0 +1,15 @@
+@import 'colours';
+@import 'mixins';
+
+form.new_user {
+  padding: 25px 0;
+}
+
+// only style if it's after a form (grabs header button otherwise)
+form + a[href="/users/sign_in"] {
+  @include secondary-btn;
+}
+
+form + a[href="/users/sign_in"]:hover {
+  @include btn--hover;
+}

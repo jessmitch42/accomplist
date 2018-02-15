@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resource :users
+
+  resources :users do
+    resources :lists # to get /users/:id/lists/:id
+  end
+
   get '/about', to: 'static#about'
   root 'welcome#index'
 

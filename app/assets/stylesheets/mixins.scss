@@ -1,0 +1,22 @@
+@mixin form-btn {
+  border: 2px solid $navy;
+  border-radius: 4px;
+  padding: 5px;
+  background-color: $peach;
+  margin: 10px 0;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+@mixin secondary-btn {
+  border: 2px solid $navy;
+  border-radius: 4px;
+  padding: 5px;
+  background-color: $creme;
+}
+
+@mixin btn--hover {
+  background-color: $grey;
+  color: $creme;
+  transition: 0.5s;
+}
