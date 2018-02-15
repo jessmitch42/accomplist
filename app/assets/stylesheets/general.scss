@@ -38,34 +38,11 @@ a:hover {
 }
 
 a:focus {
-  color: $yellow;
+  color: $darkgreen;
 }
 
 /* **** /LINKS ***** */
 
-
-/* **** SITE HEADER ***** */
-
-.header__container {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 4px solid $navy;
-
-    h1 {
-      font-size: 1.2rem;
-    }
-}
-
-.site-header__nav-ul {
-  display: flex;
-  list-style: none;
-
-  li {
-    margin: 0 10px;
-  }
-}
-
-/* **** /SITE HEADER ***** */
 
 /* **** FOOTER ***** */
 footer {
