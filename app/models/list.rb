@@ -4,4 +4,6 @@ class List < ApplicationRecord
   has_many :list_tags
 
   validates :date, presence: true
+
+
 end

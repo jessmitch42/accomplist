@@ -13,7 +13,12 @@ class User < ApplicationRecord
     self.email.split("@")[0]
   end
 
-  # def no_lists_yet?
-  #   current_user.lists.nil?
-  # end
+  def todays_list
+    self.lists.find_or_create_by(date: Date.today)
+  end
+
+  def has_list_today
+    self.lists.where("date = ?", Date.today).exists?
+  end
+
 end

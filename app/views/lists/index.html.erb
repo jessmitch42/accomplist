@@ -1,7 +1,8 @@
 <h1> Hey, <%= current_user.username %>!</h1>
 
-<% if current_user %>
-  Let's get started! We'll automatically sort your lists by day so <%= link_to "create a new list", user_list_path(current_user, todays_list), :class => "link" %> when you vist each day and add Acomplistments throughout the day.
+<% if current_user.has_list_today %>
+  <h1>list exists today!</h1>
 <% else %>
+  Let's get started! We'll automatically sort your lists by day so <%= link_to "create a new list", user_list_path(current_user, current_user.todays_list), :class => "link" %> when you vist each day and add Acomplistments throughout the day.
 
 <% end %>

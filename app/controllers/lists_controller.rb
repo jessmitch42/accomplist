@@ -1,24 +1,20 @@
 class ListsController < ApplicationController
-  helper_method :todays_list
+  helper_method :todays_list, :formatted_date
 
   def index
     @lists = current_user
   end
 
   def show
-
+    @list = todays_list
   end
 
-  # def todays_list_exists?
-  #   List.where("date = ?", Date.today).exists?
-  # end
-  #
-  # def todays_list
-  #   List.where("date = ?", Date.today).first
-  # end
-
   def todays_list
-    @list = List.find_or_create_by(date: Date.today)
+    @list = current_user.todays_list
+  end
+
+  def formatted_date(date)
+    date.strftime("%A, %B, %Y")
   end
 
 end
