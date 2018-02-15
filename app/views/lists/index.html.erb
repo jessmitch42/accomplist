@@ -1,1 +1,7 @@
-<h1> Hey, <%= current_user.name %>!</h1>
+<h1> Hey, <%= current_user.username %>!</h1>
+
+<% if current_user.no_lists_yet? %>
+  Let's get started! We'll automatically sort your lists by day so <%= link_to "create a new list", new_user_list(current_user) %> when you vist each day and add Acomplistments throughout the day. 
+<% else %>
+
+<% end %>

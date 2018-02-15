@@ -6,3 +6,4 @@ things you did that you'll forget about:
 
 to do:
 - update devise to user username
+- reorganize helper_methods into helpers

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :lists # to get /users/:id/lists/:id
+    resources :tags # to get tags user has used ~*~RESTfully~*~
   end
 
   get '/about', to: 'static#about'
