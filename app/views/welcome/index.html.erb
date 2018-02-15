@@ -18,7 +18,7 @@
     <% end %>
   </table>
 
-  <p><%= link_to "Start a new list for today", new_user_list_path(current_user), :class => "link" %></p>
+  <p><%= link_to "Start a new list for today", user_list_path(current_user, todays_list), :class => "link" %></p>
 
   <h2>iterate through days so far</h2>
 

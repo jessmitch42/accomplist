@@ -13,7 +13,7 @@ class User < ApplicationRecord
     self.email.split("@")[0]
   end
 
-  def no_lists_yet?
-    current_user.lists.nil?
-  end
+  # def no_lists_yet?
+  #   current_user.lists.nil?
+  # end
 end

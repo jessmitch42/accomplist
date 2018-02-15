@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  helper_method :todays_list
 
   def index
     @lists = current_user
@@ -8,22 +9,16 @@ class ListsController < ApplicationController
 
   end
 
-  def new
-    if !todays_list_exists?
-      @list = List.create(user_id: current_user.id, date: Date.today)
-    else
-      @list = todays_list
-    end
-
-    redirect_to user_list_path(current_user, @list)
-  end
-
-  def todays_list_exists?
-    List.where("date = ?", Date.today).exists?
-  end
+  # def todays_list_exists?
+  #   List.where("date = ?", Date.today).exists?
+  # end
+  #
+  # def todays_list
+  #   List.where("date = ?", Date.today).first
+  # end
 
   def todays_list
-    List.where("date = ?", Date.today).first
+    @list = List.find_or_create_by(date: Date.today)
   end
 
 end
