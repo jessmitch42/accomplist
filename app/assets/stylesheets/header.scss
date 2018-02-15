@@ -10,6 +10,11 @@
     h1 {
       font-size: 1.2rem;
     }
+
+    h1 a:hover {
+      text-shadow: 5px 5px $peach;
+      font-weight: bold;
+    }
 }
 
 .site-header__nav-ul {
