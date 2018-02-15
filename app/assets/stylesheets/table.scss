@@ -1,0 +1,14 @@
+@import 'colours';
+
+table.accomplist-table {
+  width: 95%;
+  min-width: 575px;
+  max-width: 800px;
+  height: calc(width/7.19);
+  min-height: 80px;
+
+  td {
+    border: 1px solid $darkgreen;
+    background-color: $blue-lightest;
+  }
+}

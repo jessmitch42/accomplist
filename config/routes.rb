@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users do
-    resources :lists # to get /users/:id/lists/:id
+    resources :lists, only: [:show, :index, :new, :create] # to get /users/:id/lists/:id
     resources :tags # to get tags user has used ~*~RESTfully~*~
   end
 

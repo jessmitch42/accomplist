@@ -6,9 +6,20 @@
 
 
 <% else %>
-  <h2 class="page-header" >Hey there! </h2>
+  <h2 class="page-header" >Hey there! Today's going to be a good day!</h2>
   <h2>Your Accomplists</h2>
-  <h1>(TABLE)</h1>
+  <table class="accomplist-table">
+    <% 7.times do %>
+      <tr>
+        <% 52.times do %>
+          <td class="accomplist-table__td"></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+
+  <p><%= link_to "Start a new list for today", new_user_list_path(current_user), :class => "link" %></p>
+
   <h2>iterate through days so far</h2>
-  <h2>link to start new list for today or link to today if it's already started</h2>
+
 <% end %>
