@@ -21,6 +21,11 @@ body {
   float: right;
 }
 
+.green {
+  color: $darkgreen;
+}
+
+// FORMS ***************
 
 form .actions input {
   @include form-btn
