@@ -1,11 +1,11 @@
 <h1>Welcome to Accomplist!</h1>
 
-<!-- if not logged it -->
-<p>If this is your first time here, hey/how ya doing?</p>
-<p>Either way, Sign Up or Login to get going. </p>
-
-<!-- if logged in -->
-
-<!-- show user's productivity table -->
-<!-- my lists link -->
-<!-- today's list link -->
+<% if !current_user %>
+  <p>If this is your first time here, hey/how ya doing?</p>
+  <p>Either way, Sign Up or Login to get going. </p>
+<% else %>
+  <h1>Your Accomplists</h1>
+  <h1>(TABLE)</h1>
+  <h2>iterate through days so far</h2>
+  <h2>link to start new list for today or link to today if it's already started</h2>
+<% end %>
