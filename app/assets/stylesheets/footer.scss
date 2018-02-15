@@ -1,0 +1,32 @@
+@import 'colours';
+
+/* **** FOOTER ***** */
+footer {
+  background-color: $peach;
+  color: $navy;
+  padding: 30px 50px;
+  font-size: 0.8rem;
+
+  ol {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    font-size: 2rem;
+  }
+
+  li { // setting these so the icons don't move the footer when they grow
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+  }
+
+  .footer__text {
+    float: right;
+  }
+
+  a:hover {
+    font-size: 1.5em;
+    transition: 0.5s;
+  }
+}
+/* **** /FOOTER ***** */

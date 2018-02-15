@@ -1,0 +1,23 @@
+@import 'colours';
+
+/* **** LINKS ***** */
+
+a {
+  text-decoration: none;
+}
+
+a:visited, a:active {
+  color: $grey;
+}
+
+a:hover {
+  color: $navy;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+a:focus {
+  color: $darkgreen;
+}
+
+/* **** /LINKS ***** */
