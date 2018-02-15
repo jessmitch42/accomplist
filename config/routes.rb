@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resource :users
   get '/about', to: 'static#about'
   root 'welcome#index'
 
