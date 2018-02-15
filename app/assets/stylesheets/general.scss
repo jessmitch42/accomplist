@@ -21,8 +21,13 @@ body {
   float: right;
 }
 
-.green {
+.page-header, .link:hover {
   color: $darkgreen;
+  text-shadow: 3px 3px $peach;
+}
+
+.link {
+  text-decoration: overline;
 }
 
 // FORMS ***************
