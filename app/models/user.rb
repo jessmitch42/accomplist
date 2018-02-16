@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :lists
-  has_many :list_items, through: :lists
+  has_many :items, through: :lists
   has_many :list_tags
   has_many :tags, through: :list_tags
 
