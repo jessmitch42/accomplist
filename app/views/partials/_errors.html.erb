@@ -1,0 +1,7 @@
+<% if @errors %>
+  <% @errors.keys.each do |k| %>
+    <div class="<%= error %>">
+      <%= @errors[k] %>
+    </div>
+  <% end %>
+<% end %>

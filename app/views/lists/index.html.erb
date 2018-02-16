@@ -1,13 +1,14 @@
 <h1> Hey, <%= current_user.username %>!</h1>
+
   <%= render 'partials/table' %>
-<% if current_user.has_list_today? %>
+
   <h2 class="page-header">Your Lists:</h2>
-  <ul>
-    <% @lists.each do |list| %>
-      <li><%= link_to "Date: #{list.date} - Points: #{list.total_points}", list_path(current_user, list) %></li>
-    <% end %>
-  </ul>
-<% else %>
-  Let's get started! We'll automatically sort your lists by day so <%= render 'lists' %> when you vist each day and add Acomplistments throughout the day.
+
+  <%= render 'lists_ul' %>
+
+
+<% if !current_user.has_list_today? %>
+
+  Let's get started! We'll automatically sort your lists by day so <%= render 'today_list_link' %> when you vist each day and add Acomplistments throughout the day.
 
 <% end %>

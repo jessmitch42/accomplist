@@ -3,10 +3,13 @@ class ItemsController < ApplicationController
   def create
     @list = List.find(params[:list_id])
     item = @list.items.build(item_params)
-    
+
     if item.save
+      @list.total_points = total_points + item.points
+
       redirect_to list_path(@list)
     else
+      @errors = item.errors.messages
       render 'lists/show'
     end
   end
