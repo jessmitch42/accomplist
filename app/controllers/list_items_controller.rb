@@ -5,15 +5,13 @@ class ListItemsController < ApplicationController
   end
 
   def create
-    list_id = params[:list_item][:list_id]
-    @list = find_user_list_by_id(user_lists, list_id)
-    @list.list_items.build(list_item_params)
-
-    if @list.save
-
-      redirect_to user_list_path(@list)
+    list_item = ListItem.new(list_item_params)
+    if list_item.save
+      @list = list_item.list
+      binding.pry
+      redirect_to list_path(@list)
     else
-      render 'list_items/new'
+      render 'lists/show'
     end
   end
 

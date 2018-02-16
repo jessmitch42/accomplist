@@ -5,5 +5,5 @@ class ListItem < ApplicationRecord
   validates :title, presence: true
   validates :points, presence: true
   validates :list_id, presence: true
-  validates :points, numericality: { only_integer: true }
+  # validates :points, numericality: { only_integer: true }
 end

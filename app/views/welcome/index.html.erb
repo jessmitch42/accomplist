@@ -14,14 +14,14 @@
   <%= render 'partials/table' %>
   <br>
 
-  <p>Your Accommplists Graph starts on the first day of the year and will get filled in as you add accomplishments to each day. The more you get done, the darker that day's block will get. Don't worry about whether it feels "big" or "important" enough to put on your board. If it's important to you, take some credit for it!</p>
+  <p>Your AccompList Graph starts on the first day of the year and will get filled in as you add accomplishments to each day. The more you get done, the darker that day's block will get. Don't worry about whether it feels "big" or "important" enough to put on your board. If it's important to you, take some credit for it!</p>
 
   <br>
 
   <p>
     <% text = current_user.has_list_today? ? "Go to today's list" : "Start a new list for today"%>
 
-    <%= link_to text, user_list_path(current_user, current_user.todays_list), :class => "link" %> or check out all you <%= link_to "existing lists", user_lists_path(current_user), :class => "link" %>
+    <%= link_to text, list_path(current_user, current_user.todays_list), :class => "link" %> or check out all you <%= link_to "existing lists", lists_path, :class => "link" %>
   </p>
 
 <% end %>

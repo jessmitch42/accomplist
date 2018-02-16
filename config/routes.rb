@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users do
-    resources :lists, only: [:show, :index] # to get /users/:id/lists/:id
+  resources :lists do # to get /users/:id/lists/:id
+    resources :items
     resources :tags # to get tags user has used ~*~RESTfully~*~
   end
-
-  resources :list_items, only: [:new, :create]
 
   get '/about', to: 'static#about'
   root 'welcome#index'

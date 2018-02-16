@@ -1,3 +1,8 @@
+<% if @list.list_items.empty? %>
+  <h3>Add Your First Accomplishment:</h3>
+<% else %>
+  <h3>Accomplistments:</h3>
+<% end %>
 <ul>
     <% @list.list_items.each do |item| %>
     <li><%= item.title %>: <%= item.points %> Points</li>
