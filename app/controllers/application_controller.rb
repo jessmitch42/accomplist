@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  # general redirect for tomfoolery
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   helper_method :current_user, :find_list_by_user_and_day, :table_cell_colour, :add_link_if_list_exists, :user_lists, :formatted_date
 
   def user_lists
@@ -32,6 +34,10 @@ class ApplicationController < ActionController::Base
 
   def formatted_date(date)
     date.strftime("%A, %B %d, %Y")
+  end
+
+  def record_not_found
+    redirect_to root_path
   end
 
 end

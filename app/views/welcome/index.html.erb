@@ -21,7 +21,7 @@
   <p>
     <% text = current_user.has_list_today? ? "Go to today's list" : "Start a new list for today"%>
 
-    <%= link_to text, list_path(current_user, current_user.todays_list), :class => "link" %> or check out all you <%= link_to "existing lists", lists_path, :class => "link" %>
+    <%= link_to text, list_path(current_user.todays_list), :class => "link" %> or check out all you <%= link_to "existing lists", lists_path, :class => "link" %>
   </p>
 
 <% end %>
