@@ -9,6 +9,33 @@ table.accomplist-table {
 
   td {
     border: 1px solid $darkgreen;
+  }
+
+  td.colour--start {
+    background-color: $blue-start;
+  }
+
+  td.colour--lightest {
     background-color: $blue-lightest;
+  }
+
+  td.colour--light {
+    background-color: $blue-light;
+  }
+
+  td.colour--med {
+    background-color: $blue-med;
+  }
+
+  td.colour--dark {
+    background-color: $blue-dark;
+  }
+
+  td.colour--darkest {
+    background-color: $blue-darkest;
+  }
+
+  td.clickable:hover {
+    background-color: $peach;
   }
 }

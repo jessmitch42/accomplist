@@ -10,7 +10,7 @@ a:link, a:visited, a:active {
   color: $grey;
 }
 
-a:hover {
+a:hover:not(.table_cell_link) {
   color: $navy;
   font-weight: bold;
   transition: 0.5s ease-in-out;
