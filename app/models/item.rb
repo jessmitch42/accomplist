@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :list
-  belongs_to :current_list, class_name: 'List'
+  has_many :item_tags
+  has_many :tags, through: :item_tags
 
   validates :title, presence: true
   validates :points, presence: true
