@@ -7,6 +7,7 @@ class ListsController < ApplicationController
 
   def show
     @list = todays_list
+    @item = @list.items.build #prebuild an item for form to wrap around
   end
 
   def todays_list

@@ -2,11 +2,4 @@
 
 <%= render 'list' %>
 
-<%= form_for(@list_item) do |f| %>
-  <%= f.hidden_field :list_id, :value => params[:id] %>
-  <%= f.label "Accomplishment:" %>
-  <%= f.text_area :title %>
-  <%= f.label "Points:" %>
-  <%= f.text_field :points %>
-  <%= f.submit "Add to List" %>
-<% end %>
+<%= render 'items/form' %>

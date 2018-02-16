@@ -1,0 +1,10 @@
+<!-- can't use default path because 'items' resource is embedded in 'lists' -->
+<!-- array shorthand for "@item, :url => list_items_path(@list)" -->
+
+<%= form_for([@list, @item]) do |f| %>
+  <%= f.label "Accomplishment:" %> <br>
+  <%= f.text_area :title %> <br>
+  <%= f.label "Points:" %> <br>
+  <%= f.text_field :points %> <br>
+  <%= f.submit "Add to List" %>
+<% end %>

@@ -3,7 +3,7 @@ things you did that you'll forget about:
 - separated style sheets into small files
 - lists are children of user. tags also children of user.
 - routes overhaul on day three because it was more important to have items embedded in lists than showing user_list_path
-- changed :list_items to :items (table)
+- changed :items to :items (table)
 
 
 to do:
