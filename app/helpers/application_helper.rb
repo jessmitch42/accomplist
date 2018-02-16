@@ -4,8 +4,8 @@ module ApplicationHelper
     current_user.lists
   end
 
-  def find_list_by_user_and_day(user_lists, date)
-    user_lists.select{|l| l.date == date}.first
+  def find_list_by_user_and_day(lists, date)
+    lists.select{|l| l.date == date}.first
   end
 
   def find_user_list_by_id(lists, id)

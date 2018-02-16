@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :list
+  belongs_to :current_list, class_name: 'List'
 
   validates :title, presence: true
   validates :points, presence: true

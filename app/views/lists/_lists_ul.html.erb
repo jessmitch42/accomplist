@@ -1,5 +1,5 @@
 <ul>
   <% @lists.each do |list| %>
-    <li><%= link_to "Date: #{list.date} - Points: #{list.total_points}", list_path(list) %></li>
+    <li><%= link_to "#{formatted_date(list.date)} -- Points: #{list.total_points}", list_path(list), class: "link" %></li>
   <% end %>
 </ul>

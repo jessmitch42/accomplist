@@ -2,17 +2,29 @@ class ItemsController < ApplicationController
 
   def create
     @list = List.find(params[:list_id])
-    item = @list.items.build(item_params)
+    @item = @list.items.build(item_params)
 
-    if item.save
+    if @item.save
       update_total_point(@list, item, true)
 
       redirect_to list_path(@list)
     else
       @list = List.find(params[:list_id])
-      @errors = item.errors.messages
       render 'lists/show'
     end
+  end
+
+  def redirect_to_list_path
+    @list = List.find(params[:list_id])
+    redirect_to list_path(@list)
+  end
+
+  def show
+    redirect_to_list_path
+  end
+
+  def index
+    redirect_to_list_path
   end
 
   def destroy

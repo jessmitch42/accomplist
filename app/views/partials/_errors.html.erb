@@ -1,7 +1,9 @@
-<% if @errors %>
-  <% @errors.keys.each do |k| %>
-    <div class="<%= error %>">
-      <%= @errors[k] %>
-    </div>
-  <% end %>
+<% if inst && inst.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% inst.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
 <% end %>
