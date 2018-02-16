@@ -7,6 +7,6 @@
   <%= f.text_area :title %> <br>
   <%= f.label "Points:" %> <br>
   <%= f.text_field :points %> <br>
-  <%= f.collection_check_boxes(:tag, :current_list, Tag.all, :id, :name) %>
+  <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
   <%= f.submit "Add to List" %>
 <% end %>

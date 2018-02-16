@@ -6,6 +6,7 @@ things you did that you'll forget about:
 - changed :items to :items (table)
 - rescue_from ApplicationController for fake ids in url (AR record not found)
 - redirect fake paths home (no routes for path provided)
+- changed tag relationship to be to items instead of tags because of how i set up the item form. walk before run...
 
 
 to do:
