@@ -1,0 +1,17 @@
+<% if @list.items.empty? %>
+  <h3>Add Your First Accomplishment:</h3>
+<% else %>
+  <h3>Accomplistments:</h3>
+<% end %>
+<table class="user_list_table">
+    <% @list.items.each do |item| %>
+      <% if item.title %> <!--don't include one built for this form -->
+        <tr>
+          <td><%= item.title %></td>
+          <td><%= item.points %> Points</td>
+          <td><%= link_to "X", [@list, item], :confirm => "Are you sure?", :method => :delete %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+</table>

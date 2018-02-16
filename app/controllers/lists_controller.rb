@@ -6,16 +6,12 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = todays_list
+    @list = List.find(params[:id])
     @item = @list.items.build #prebuild an item for form to wrap around
   end
 
   def todays_list
     @list = current_user.todays_list
-  end
-
-  def formatted_date(date)
-    date.strftime("%A, %B, %Y")
   end
 
 end

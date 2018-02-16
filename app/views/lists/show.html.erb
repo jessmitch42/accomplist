@@ -1,6 +1,10 @@
+<p><%= link_to lists_path do %>
+  <i class="fas fa-long-arrow-alt-left"></i> Back
+  <% end %></p>
+  
 <h1 class="page-header"><%= formatted_date(@list.date) %></h1>
 
-<%= render 'list' %>
+<%= render 'list_table' %>
 
 <%= render 'partials/errors' %>
 <%= render 'items/form' %>

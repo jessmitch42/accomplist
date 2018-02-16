@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :find_list_by_user_and_day, :table_cell_colour, :add_link_if_list_exists, :user_lists
+  helper_method :current_user, :find_list_by_user_and_day, :table_cell_colour, :add_link_if_list_exists, :user_lists, :formatted_date
 
   def user_lists
     current_user.lists
@@ -28,6 +28,10 @@ class ApplicationController < ActionController::Base
     else
       "colour--darkest clickable"
     end
+  end
+
+  def formatted_date(date)
+    date.strftime("%A, %B %d, %Y")
   end
 
 end
