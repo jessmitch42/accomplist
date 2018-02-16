@@ -30,6 +30,11 @@ body {
   text-decoration: overline;
 }
 
+p.notice, p.alert {
+  font-size: 0.8rem;
+  color: $grey;
+}
+
 // FORMS ***************
 
 form .actions input {

@@ -5,5 +5,4 @@ class List < ApplicationRecord
 
   validates :date, presence: true
 
-
 end

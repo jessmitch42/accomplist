@@ -1,8 +1,10 @@
 <% if !current_user %>
-  <h2 class="page-header" >Hey there, friend! </h2>
+  <h2 class="page-header" >Welcome to AccompList!</h2>
+  <p>AccompList is for anyone looking to give themselves credit for what they're getting done each day to help them feel a little more accomplished.</p>
 
-  <p>If this is your first time here, hey/how ya doing?</p>
-  <p>Either way, <%= link_to "Sign Up", new_user_registration_path, :class => "link" %> or <%= link_to "Log In", new_user_session_path, :class => "link" %></li> to get going. </p>
+  <br>
+
+  <p><%= link_to "Sign Up", new_user_registration_path, :class => "link" %> or <%= link_to "Log In", new_user_session_path, :class => "link" %></li> to get started. </p>
 
 
 <% else %>
@@ -12,7 +14,7 @@
   <%= render 'partials/table' %>
   <br>
 
-  <p>Your Accommplists Graph starts on the first day of the year and will get filled in as you add AccompListments to each day. The more you get done, the darker that day's block will get. Don't worry about whether it feels "big" or "important" enough to put on your board. If it's important to you, take some credit for it!</p>
+  <p>Your Accommplists Graph starts on the first day of the year and will get filled in as you add accomplishments to each day. The more you get done, the darker that day's block will get. Don't worry about whether it feels "big" or "important" enough to put on your board. If it's important to you, take some credit for it!</p>
 
   <br>
 

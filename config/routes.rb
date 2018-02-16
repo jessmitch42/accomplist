@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :tags # to get tags user has used ~*~RESTfully~*~
   end
 
+  resources :list_items, only: [:new, :create]
+
   get '/about', to: 'static#about'
   root 'welcome#index'
 

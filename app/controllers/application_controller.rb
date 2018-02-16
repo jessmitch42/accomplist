@@ -1,19 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :all_lists_for_user, :find_list_by_user_and_day, :table_cell_colour, :add_link_if_list_exists
-  #
-  # def find_list_by_date(date)
-  #   if current_user.lists.where('date = ?', date).exists?
-  #     current_user.lists.find_by('date = ?', date)
-  #   end
-  # end
+  helper_method :current_user, :find_list_by_user_and_day, :table_cell_colour, :add_link_if_list_exists, :user_lists
 
-  def all_lists_for_user
+  def user_lists
     current_user.lists
   end
 
   def find_list_by_user_and_day(user_lists, date)
     user_lists.select{|l| l.date == date}.first
+  end
+
+  def find_user_list_by_id(lists, id)
+    lists.select{|l| l.id == id.to_i}.first
   end
 
   def table_cell_colour(list)

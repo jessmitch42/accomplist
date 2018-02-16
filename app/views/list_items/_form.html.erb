@@ -1,0 +1,8 @@
+<%= form_for :list_item, {url: list_items_path, method: "post", class: "form--flex-rows"} do |f| %>
+  <%= f.hidden_field :list_id, :value => params[:id] %>
+  <%= f.label "Accomplishment:" %>
+  <%= f.text_area :title %>
+  <%= f.label "Points:" %>
+  <%= f.text_field :points %>
+  <%= f.submit "Add to List" %>
+<% end %>

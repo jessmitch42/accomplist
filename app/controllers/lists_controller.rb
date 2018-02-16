@@ -2,7 +2,7 @@ class ListsController < ApplicationController
   helper_method :todays_list, :formatted_date
 
   def index
-    @lists = current_user.lists
+    @lists = user_lists
   end
 
   def show
