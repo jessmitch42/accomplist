@@ -1,0 +1,26 @@
+<table class="accomplist-table">
+  <% starting_date = Date.new(2018, 1, 1) %>
+  <% week = 0 %>
+  <% 7.times do %>
+    <% date = starting_date + week %>
+    <tr>
+      <% 52.times do %>
+
+        <!-- temporary solution for links instead of trying to make empty anchor clickable. don't judge me. -->
+        <% list = find_list_by_user_and_day(all_lists_for_user, date) %>
+        <% link = "window.location = '/users/#{current_user.id}/lists/#{list.id}'" if list %>
+        <% cursor = 'style=cursor:pointer;' if list %>
+
+        <td
+          onClick="<%= link %>"
+          class="accomplist-table__td <%= table_cell_colour(list) %>" data-date="<%= date.to_s %>"
+          title="<%= date.to_s %>"
+          <%= cursor %>
+        >
+        </td>
+      <% date = date + 7  %>
+      <% end %>
+    </tr>
+    <% week = week + 1 %>
+  <% end %>
+</table>

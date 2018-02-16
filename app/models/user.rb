@@ -21,7 +21,7 @@ class User < ApplicationRecord
     self.lists.find_by(date: date)
   end
 
-  def has_list_today
+  def has_list_today?
     self.lists.where("date = ?", Date.today).exists?
   end
 
