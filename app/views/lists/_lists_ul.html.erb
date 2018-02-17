@@ -1,4 +1,4 @@
-<ul>
+<ul class="user-lists-ul">
   <% @lists.each do |list| %>
     <li><%= link_to "#{formatted_date(list.date)} -- Points: #{list.total_points}", list_path(list), class: "link" %></li>
   <% end %>

@@ -1,8 +1,11 @@
-<% if @list.items.empty? %>
+<% if @list.items.empty? || @list.items.first.id.nil?%>
   <h3>Add Your First Accomplishment:</h3>
+
 <% else %>
   <h3>Accomplistments:</h3>
 <% end %>
+
+
 <table class="user_list_table">
     <% @list.items.each do |item| %>
       <% if !item.title.blank? %> <!--don't include one built for this form -->

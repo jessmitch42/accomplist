@@ -1,4 +1,5 @@
 @import 'colours';
+@import 'misc_var';
 @import 'mixins';
 
 form.new_user {
@@ -12,4 +13,25 @@ form + a[href="/users/sign_in"] {
 
 form + a[href="/users/sign_in"]:hover {
   @include btn--hover;
+}
+
+.user-lists-ul {
+  padding-left: 0;
+
+  li {
+    line-height: 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+.user_list_table {
+  max-width: $list_page-width;
+
+  td {
+    width: 25%;
+  }
+
+  td:first-child {
+    width: 50%;
+  }
 }

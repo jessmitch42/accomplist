@@ -7,11 +7,24 @@
 
     <%= f.label "Accomplishment/Title:" %> <br>
     <%= f.text_area :title %> <br>
-    <%= f.label "Points (1-3):" %> <br>
-    <%= f.text_field :points %> <br>
+    <!-- <%= f.label "Points (1-3):" %> <br>
+    <%= f.text_field :points %> <br> -->
+    <div>
+      <%= f.label :points %> <br>
+      <%= f.label :points_one, '1' %>
+      <%= f.radio_button :points, '1', :checked => true %>
+      <%= f.label :points_two, '2' %>
+      <%= f.radio_button :points, '2' %>
+      <%= f.label :points_three, '3' %>
+      <%= f.radio_button :points, '3' %><br>
+    </div>
+    <br>
     <div>
       <%= f.label "Tags:" %> <br><br>
-      <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+      <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %> <br>
+      <%= f.fields_for :tags, @item.tags.build do |tags_fields| %>
+        <%= tags_fields.text_field :name, placeholder: "Create New Tag", class: "new-tag-field" %>
+      <% end %>
     </div>
     <%= f.submit "Add to List" %>
   <% end %>

@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
 
     item = @list.items.find(params[:id])
     if item
+      update_total_point(@list, item)
       item.delete
     end
     redirect_to list_path(@list)
@@ -48,7 +49,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:title, :points, :list_id, :tag_ids => [])
+    params.require(:item).permit(:title, :points, :list_id, :tag_ids => [], tags_attributes: [:name])
   end
 
 end

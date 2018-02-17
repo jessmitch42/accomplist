@@ -17,11 +17,11 @@ module ApplicationHelper
       "colour--start"
     elsif list.total_points < 3
       "colour--lightest clickable"
-    elsif list.total_points < 5
+    elsif list.total_points < 6
       "colour--light clickable"
-    elsif list.total_points < 7
+    elsif list.total_points < 10
       "colour--med clickable"
-    elsif list.total_points < 9
+    elsif list.total_points < 15
       "colour--dark clickable"
     else
       "colour--darkest clickable"
