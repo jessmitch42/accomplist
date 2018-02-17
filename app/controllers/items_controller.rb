@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-        binding.pry
     @list = List.find(params[:list_id])
     @item = @list.items.build(item_params)
 
@@ -13,11 +12,6 @@ class ItemsController < ApplicationController
     else
       render 'lists/show'
     end
-  end
-
-  def redirect_to_list_path
-    @list = List.find(params[:list_id])
-    redirect_to list_path(@list)
   end
 
   def show
@@ -41,6 +35,15 @@ class ItemsController < ApplicationController
 
   private
 
+  def item_params
+    params.require(:item).permit(:title, :points, :list_id, :tag_ids => [], tags_attributes: [:name])
+  end
+
+  def redirect_to_list_path
+    @list = List.find(params[:list_id])
+    redirect_to list_path(@list)
+  end
+
   def update_total_point(list, item, add = false)
     if add
       list.total_points = list.total_points + item.points
@@ -48,10 +51,6 @@ class ItemsController < ApplicationController
       list.total_points = list.total_points - item.points
     end
     list.save
-  end
-
-  def item_params
-    params.require(:item).permit(:title, :points, :list_id, :tag_ids => [], tags_attributes: [:name])
   end
 
 end

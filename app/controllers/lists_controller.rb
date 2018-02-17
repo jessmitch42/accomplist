@@ -3,7 +3,8 @@ class ListsController < ApplicationController
   helper_method :todays_list, :formatted_date
 
   def index
-    @lists = user_lists
+    lists = user_lists
+    @lists = user_lists.order("date DESC")
   end
 
   def show

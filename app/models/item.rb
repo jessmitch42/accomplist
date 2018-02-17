@@ -16,7 +16,7 @@ class Item < ApplicationRecord
 
   def tag_ids=(ids)
    ids.each do |id|
-     if !id.nil? || !id.blanks?
+     if !id.nil? || !id.blank?
        tag = Tag.find(id)
        self.tags << tag if !self.tags.include?(tag)
      end
