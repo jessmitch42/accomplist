@@ -7,6 +7,7 @@ table.accomplist-table {
   max-width: $content-max-width;
   height: calc(width/7.19);
   min-height: 80px;
+  margin-bottom: 15px;
 
   td {
     border: 1px solid $darkgreen;

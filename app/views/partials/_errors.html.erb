@@ -1,7 +1,7 @@
-<% if inst && inst.errors.any? %>
+<% if item.errors.any? %>
   <div id="error_explanation">
     <ul>
-    <% inst.errors.full_messages.each do |msg| %>
+    <% item.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>

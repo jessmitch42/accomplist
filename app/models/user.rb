@@ -22,10 +22,6 @@ class User < ApplicationRecord
       )
     end
     user
-end
-
-  def username
-    self.email.split("@")[0]
   end
 
   def todays_list
@@ -40,4 +36,7 @@ end
     self.lists.where("date = ?", Date.today).exists?
   end
 
+  def has_lists?
+    self.lists.exists?
+  end
 end

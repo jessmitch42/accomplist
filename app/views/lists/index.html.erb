@@ -1,6 +1,10 @@
-<h1 class="page-header"> Hey, <%= current_user.username %>!</h1>
+<h1 class="page-header"> Hey, <%= username %>!</h1>
 
   <%= render 'partials/table' %>
+
+  <% if current_user.has_lists? %>
+  <%= link_to "Check out your most used tags", tags_path, class: "link" %>
+  <% end %>
 
   <h2>Your Lists:</h2>
 

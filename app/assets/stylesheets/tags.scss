@@ -1,0 +1,9 @@
+.tags-list {
+  padding-left: 0;
+  width: 325px;
+
+  li:nth-child(odd) {
+    background: white;
+    line-height: 1.5rem;
+  }
+}

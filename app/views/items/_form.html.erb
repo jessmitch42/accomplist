@@ -1,17 +1,13 @@
-<!-- can't use default path because 'items' resource is embedded in 'lists' -->
+
 <!-- array shorthand for "@item, :url => list_items_path(@list)" -->
 <div class="add-item-form">
   <h3>Add a New Accomplist:</h3>
-
+  <%= render partial: 'partials/errors', locals: {item: @item} %>
   <%= form_for([@list, @item]) do |f| %>
-    <%= render partial: 'partials/errors', locals: {inst: @item} %>
-
-    <%= f.label "Accomplishment/Title:" %> <br>
+    <%= f.label "Accomplishment/Title:" %>
     <%= f.text_area :title %> <br>
-    <!-- <%= f.label "Points (1-3):" %> <br>
-    <%= f.text_field :points %> <br> -->
     <div>
-      <%= f.label "Points:" %> <br><br>
+      <%= f.label "Points:" %>
       <%= f.label :points_one, '1' %>
       <%= f.radio_button :points, '1', :checked => true %>
       <%= f.label :points_two, '2' %>
@@ -21,7 +17,7 @@
     </div>
     <br>
     <div>
-      <%= f.label "Tags:" %> <br><br>
+      <%= f.label "Tags:" %> <br>
       <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name, :include_hidden => false %> <br>
       <%= f.fields_for :tags, @item.tags.build do |tags_fields| %>
         <%= tags_fields.text_field :name, placeholder: "Create New Tag", class: "new-tag-field" %>

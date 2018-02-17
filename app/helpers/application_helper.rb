@@ -1,4 +1,7 @@
 module ApplicationHelper
+  def username
+    current_user.email.split("@")[0]
+  end
 
   def user_lists
     current_user.lists
@@ -35,4 +38,30 @@ module ApplicationHelper
   def record_not_found
     redirect_to root_path
   end
+
+
+  def most_used_tag
+    # get all tags
+    tags = []
+    current_user.lists.each do |list|
+      list.items.each do |item|
+        item.tags.each { |tag| tags << tag }
+      end
+    end
+
+    # count tags
+    counter = {}
+    tags.each do |t|
+      if counter[t.name]
+        counter[t.name] = counter[t.name] + 1
+      else
+        counter[t.name] = 1
+      end
+    end
+
+    # sort tags
+    @tags = counter.sort_by {|_key, value| value}.reverse
+    render 'tags/most_used_tag'
+  end
+
 end
