@@ -1,9 +1,10 @@
 @import 'colours';
+@import 'misc_var';
 
 table.accomplist-table {
   width: 95%;
   min-width: 575px;
-  max-width: 800px;
+  max-width: $content-max-width;
   height: calc(width/7.19);
   min-height: 80px;
 

@@ -5,7 +5,6 @@
   <h3>Accomplistments:</h3>
 <% end %>
 
-
 <table class="user_list_table">
     <% @list.items.each do |item| %>
       <% if !item.title.blank? %> <!--don't include one built for this form -->
@@ -17,4 +16,9 @@
         </tr>
       <% end %>
     <% end %>
+    <tr>
+      <td></td>
+      <td>Total: <%= @list.total_points %></td>
+      <td></td>
+    </tr>
 </table>

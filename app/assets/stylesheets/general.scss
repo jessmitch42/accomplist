@@ -1,5 +1,6 @@
 @import 'colours';
 @import 'mixins';
+@import 'misc_var';
 
 html {
   background-color: $creme;
@@ -23,6 +24,10 @@ li {
   width: 80%;
   margin: auto;
   min-height: 85vh;
+}
+
+.content {
+  width: $content-max-width;
 }
 
 .float-right {

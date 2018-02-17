@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
 
   private
 
-  def update_total_point(list, item, add)
+  def update_total_point(list, item, add = false)
     if add
       list.total_points = list.total_points + item.points
     else

@@ -25,13 +25,29 @@ form + a[href="/users/sign_in"]:hover {
 }
 
 .user_list_table {
-  max-width: $list_page-width;
+  width: $list_page-width;
+  margin: 0 0 20px;
 
   td {
     width: 25%;
+    text-align: right;
   }
 
   td:first-child {
     width: 50%;
+    text-align: left;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #fff;
+  }
+
+  tr:nth-last-child(2)  td:nth-child(2) {
+    border-bottom: 2px solid $navy;
+  }
+
+  a:hover {
+    color: $peach;
+    transtion: 0.1s ease-in-out;
   }
 }

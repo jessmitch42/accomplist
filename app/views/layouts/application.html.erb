@@ -13,8 +13,10 @@
   <body>
     <div class="wrapper">
       <%= render "partials/header" %>
-      <%= render "partials/devise_alerts" %>
-      <%= yield %>
+      <div class="content">
+        <%= render "partials/devise_alerts" %>
+        <%= yield %>
+      </div>
     </div>
     <footer>
       <%= render "partials/footer" %>
