@@ -1,3 +1,36 @@
-.form--flex-rows {
-  display: flex;
+@import 'colours';
+@import 'mixins';
+
+.add-item-form {
+  max-width: 400px;
+  border-top: 5px solid $navy;
+
+   form {
+     display: flex;
+     flex-direction: column;
+     max-width: 90%;
+     margin: auto;
+     padding: 30px 0px;
+   }
+
+   textarea, input[type="text"] {
+     resize: none;
+     border: 2px solid $navy;
+     border-radius: 3px;
+   }
+
+  input[type="submit"] {
+    @include form-btn;
+    width: 120px;
+    align-self: flex-end;
+  }
+
+  input[type="submit"]:hover {
+    @include btn--hover;
+  }
+
+  input[type="checkbox"] + label {
+    margin-right: 10px;
+  }
+
 }

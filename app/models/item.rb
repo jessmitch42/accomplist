@@ -6,5 +6,5 @@ class Item < ApplicationRecord
   validates :title, presence: true
   validates :points, presence: true
   validates :list_id, presence: true
-  validates :points, numericality: { only_integer: true }
+  validates :points, :inclusion => { :in => 1..3 }
 end

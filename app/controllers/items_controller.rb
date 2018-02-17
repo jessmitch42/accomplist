@@ -5,11 +5,10 @@ class ItemsController < ApplicationController
     @item = @list.items.build(item_params)
 
     if @item.save
-      update_total_point(@list, item, true)
+      update_total_point(@list, @item, true)
 
       redirect_to list_path(@list)
     else
-      @list = List.find(params[:list_id])
       render 'lists/show'
     end
   end
