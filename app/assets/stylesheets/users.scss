@@ -27,6 +27,7 @@ form + a[href="/users/sign_in"]:hover {
 .user_list_table {
   width: $list_page-width;
   margin: 0 0 20px;
+  border-collapse: collapse;
 
   td {
     width: 25%;
