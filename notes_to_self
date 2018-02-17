@@ -7,11 +7,13 @@ things you did that you'll forget about:
 - rescue_from ApplicationController for fake ids in url (AR record not found)
 - redirect fake paths home (no routes for path provided)
 - changed tag relationship to be to items instead of tags because of how i set up the item form. walk before run...
+- authentication working for fb. google gave me a hard time (maybe because it's http not https?)
 
 
 to do:
-- update devise to user username
+- update devise to user username # nah
 - reorganize helper_methods into helpers
 - check how you're deciding which functions go under which controller
-- omni auth
+- omni auth # done
 - copy
+- fix tags (not required to create new one)
