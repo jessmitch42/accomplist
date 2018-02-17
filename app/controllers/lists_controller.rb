@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  before_action :authenticate_user!
   helper_method :todays_list, :formatted_date
 
   def index
