@@ -13,9 +13,9 @@ module ApplicationHelper
   end
 
   def table_cell_colour(list)
-    if list.nil? || !list.total_points
+    if list.nil? || !list.total_points || list.total_points == 0
       "colour--start"
-    elsif list.total_points.between?(1, 3)
+    elsif list.total_points < 3
       "colour--lightest clickable"
     elsif list.total_points < 6
       "colour--light clickable"

@@ -1,0 +1,7 @@
+<h1 class="page-header"><%= formatted_date(list.date) %></h1>
+
+<% if list.items.first.id %>
+  <h3>Accomplishments:</h3>
+  <%= render partial: 'lists/list_table', locals: {list: list} %>
+  <%= render partial: 'items/tags', locals: {list: list} %>
+<% end %>

@@ -1,0 +1,52 @@
+@import 'colours';
+@import 'misc_var';
+
+.list_show_tags {
+  display: flex;
+  padding: 0 10px 20px;
+
+  div {
+    background-color: $grey;
+    color: $creme;
+    padding: 3px;
+    margin: 0 3px;
+  }
+}
+
+.user-lists-ul {
+  padding-left: 0;
+
+  li {
+    line-height: 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+.user_list_table {
+  width: $list_page-width;
+  margin: 0 0 20px;
+  border-collapse: collapse;
+
+  td {
+    width: 25%;
+    text-align: right;
+  }
+
+  td:first-child {
+    width: 50%;
+    text-align: left;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #fff;
+  }
+
+  tr:nth-last-child(2)  td:nth-child(2) {
+    border-bottom: 2px solid $navy;
+  }
+
+  a:hover {
+    color: $peach;
+    transtion: 0.1s ease-in-out;
+  }
+}

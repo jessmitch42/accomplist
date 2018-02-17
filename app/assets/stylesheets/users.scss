@@ -1,5 +1,4 @@
 @import 'colours';
-@import 'misc_var';
 @import 'mixins';
 
 form.new_user {
@@ -8,6 +7,8 @@ form.new_user {
 
 // only style if it's after a form (grabs header button otherwise)
 form + a[href="/users/sign_in"] {
+  display: block;
+  width: 60px;
   @include secondary-btn;
 }
 
@@ -15,40 +16,32 @@ form + a[href="/users/sign_in"]:hover {
   @include btn--hover;
 }
 
-.user-lists-ul {
-  padding-left: 0;
-
-  li {
-    line-height: 2rem;
-    font-size: 1.1rem;
-  }
+form#new_user + a[href="/users/sign_up"] {
+  display: block;
+  width: 80px;
+  @include secondary-btn;
 }
 
-.user_list_table {
-  width: $list_page-width;
-  margin: 0 0 20px;
-  border-collapse: collapse;
+form#new_user + a[href="/users/sign_up"]:hover {
+  @include btn--hover;
+}
 
-  td {
-    width: 25%;
-    text-align: right;
-  }
+a[href="/users/password/new"] {
+  display: block;
+  width: 185px;
+  @include secondary-btn;
+}
 
-  td:first-child {
-    width: 50%;
-    text-align: left;
-  }
+a[href="/users/password/new"]:hover {
+  @include btn--hover;
+}
 
-  tr:nth-child(odd) {
-    background-color: #fff;
-  }
+a[href="/users/auth/facebook"] {
+  @include form-btn;
+  width: 185px;
+  margin-top: 25px;
+}
 
-  tr:nth-last-child(2)  td:nth-child(2) {
-    border-bottom: 2px solid $navy;
-  }
-
-  a:hover {
-    color: $peach;
-    transtion: 0.1s ease-in-out;
-  }
+a[href="/users/auth/facebook"]:hover {
+  @include btn--hover;
 }

@@ -16,3 +16,18 @@ Tag.create(name:"learning")
 Tag.create(name:"self-care")
 Tag.create(name:"books")
 Tag.create(name:"mindfulness")
+
+
+# mock old lists for my user id for demo
+#
+# List.create(user_id: 1, date: Date.new(2018,2,1))
+# List.create(user_id: 1, date: Date.new(2018,2,2))
+# List.create(user_id: 1, date: Date.new(2018,2,3))
+# List.create(user_id: 1, date: Date.new(2018,2,4))
+# List.create(user_id: 1, date: Date.new(2018,2,5))
+# List.create(user_id: 1, date: Date.new(2018,2,6))
+# List.create(user_id: 1, date: Date.new(2018,2,7))
+# List.create(user_id: 1, date: Date.new(2018,2,8))
+#
+# List.create(user_id: 1, date: Date.new(2018,2,10))
+# List.create(user_id: 1, date: Date.new(2018,2,12))

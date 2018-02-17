@@ -8,13 +8,19 @@ class Item < ApplicationRecord
   validates :list_id, presence: true
   validates :points, :inclusion => { :in => 1..3 }
 
-  accepts_nested_attributes_for :tags
-
-  def tags_attributes=(tag_attributes)
-    tag_attributes.values.each do |tag_attribute|
-      tag = Tag.find_or_create_by(tag_attribute)
-      self.tags << tag
+  def tags_attributes=(tag_attribute)
+    if tag_attribute && !tag_attribute[:name].blank?
+      self.tags << Tag.find_or_create_by(name: tag_attribute[:name])
     end
   end
+
+  def tag_ids=(ids)
+   ids.each do |id|
+     if !id.nil? || !id.blanks?
+       tag = Tag.find(id)
+       self.tags << tag if !self.tags.include?(tag)
+     end
+   end
+ end
 
 end

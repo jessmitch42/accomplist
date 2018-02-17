@@ -2,6 +2,17 @@
 @import 'misc_var';
 @import 'mixins';
 
+// FORMS ***************
+
+form .actions input {
+  @include form-btn;
+  font-family: 'Montserrat', sans-serif; //devise was changing this
+}
+
+form .actions input:hover {
+  @include btn--hover;
+}
+
 .add-item-form {
   max-width: $list_page-width;
   border-top: 5px solid $navy;

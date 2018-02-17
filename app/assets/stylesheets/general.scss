@@ -47,13 +47,3 @@ p.notice, p.alert {
   font-size: 0.8rem;
   color: $grey;
 }
-
-// FORMS ***************
-
-form .actions input {
-  @include form-btn
-}
-
-form .actions input:hover {
-  @include btn--hover
-}

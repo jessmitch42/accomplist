@@ -4,12 +4,6 @@
   <i class="fas fa-long-arrow-alt-left"></i> Back
   <% end %></p>
 
-<h1 class="page-header"><%= formatted_date(@list.date) %></h1>
-
-<% if @list.items.first.id %>
-  <h3>Accomplishments:</h3>
-<% end %>
-
-<%= render partial: 'lists/list_table', locals: {list: @list} %>
+<%= render partial: 'lists/todays_existing_list', locals: {list: @list} %>
 
 <%= render 'items/form' %>

@@ -1,13 +1,13 @@
 <table class="user_list_table">
-    <% @list.items.each do |item| %>
-      <% if !item.title.blank? %> <!--don't include one built for this form -->
-        <tr>
-          <td><%= item.title %></td>
-          <td><%= item.points %> Points</td>
-          <td><%= link_to "X", [@list, item], :confirm => "Are you sure?", :method => :delete %>
-          </td>
-        </tr>
-      <% end %>
+  <% @list.items.each do |item| %>
+    <% if !item.title.blank? %> <!--don't include one built for this form -->
+      <tr>
+        <td><%= item.title %></td>
+        <td><%= item.points %> Points</td>
+        <td><%= link_to "X", [@list, item], :confirm => "Are you sure?", :method => :delete %>
+        </td>
+      </tr>
     <% end %>
-    <%= render 'partials/total_points_tr', locals: {list: @list} %>
+  <% end %>
+  <%= render 'partials/total_points_tr', locals: {list: @list} %>
 </table>

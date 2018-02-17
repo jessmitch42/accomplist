@@ -3,5 +3,6 @@ class List < ApplicationRecord
   has_many :items
 
   validates :date, presence: true
+  validates :date, uniqueness: true
 
 end
