@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def create
+        binding.pry
     @list = List.find(params[:list_id])
     @item = @list.items.build(item_params)
 

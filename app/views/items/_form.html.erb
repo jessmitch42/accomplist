@@ -2,7 +2,7 @@
 <!-- array shorthand for "@item, :url => list_items_path(@list)" -->
 <div class="add-item-form">
   <h3>Add a New Accomplist:</h3>
-  
+
   <%= form_for([@list, @item]) do |f| %>
     <%= render partial: 'partials/errors', locals: {inst: @item} %>
 
@@ -22,7 +22,7 @@
     <br>
     <div>
       <%= f.label "Tags:" %> <br><br>
-      <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %> <br>
+      <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name, :include_hidden => false %> <br>
       <%= f.fields_for :tags, @item.tags.build do |tags_fields| %>
         <%= tags_fields.text_field :name, placeholder: "Create New Tag", class: "new-tag-field" %>
       <% end %>

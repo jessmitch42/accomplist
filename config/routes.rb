@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :tags
   get '/about', to: 'static#about'
   # redirect random paths back home
-  match '*path' => redirect('/'), via: :get
+  # match '*path' => redirect('/'), via: :get
   root 'welcome#index'
 end

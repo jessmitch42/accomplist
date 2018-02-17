@@ -9,8 +9,8 @@ class Item < ApplicationRecord
   validates :points, :inclusion => { :in => 1..3 }
 
   def tags_attributes=(tag_attribute)
-    if tag_attribute && !tag_attribute[:name].blank?
-      self.tags << Tag.find_or_create_by(name: tag_attribute[:name])
+    if tag_attribute && !tag_attribute[:"0"][:name].blank?
+      self.tags << Tag.find_or_create_by(name: tag_attribute[:"0"][:name])
     end
   end
 
