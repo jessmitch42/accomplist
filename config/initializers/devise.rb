@@ -254,7 +254,8 @@ Devise.setup do |config|
   # up on your models and hooks.
 
   config.omniauth :facebook, '189887005102251', '322b0d7c6bcd61a0242d5bb102dcfb36'
-  config.omniauth :github, '9d96ebbc38cd39df6663', '7aa66455be6af20b78ec117ef9ddc9a4be479bb7'
+
+  config.omniauth :google_oauth2, '796523975665-a5fkld93fkdhutnql03pobuo41q389pc.apps.googleusercontent.com', 'Xsobrv9fsWXQFLbmztqPSbeB'
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
@@ -276,5 +277,5 @@ Devise.setup do |config|
   #
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
-  config.omniauth_path_prefix = '/my_engine/users/auth'
+  config.omniauth_path_prefix = '/users/auth'
 end
