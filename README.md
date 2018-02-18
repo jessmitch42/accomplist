@@ -1,7 +1,7 @@
 # AccompList: Taking Cred for Little Victories
 
 ## Usage
-Fork, bundle install, db:migrate, db:seed (for dummy data)
+Fork, clone, bundle install, db:migrate, db:seed (for dummy data)
 
 <img src="/app/assets/images/landingpage.png" alt="Welcome Page Screenshot">
 
