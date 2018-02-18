@@ -39,4 +39,35 @@ class User < ApplicationRecord
   def has_lists?
     self.lists.exists?
   end
+
+
+  def user_tags_sorted
+    tags = self.user_tags_used
+
+    counter = tally_tags(tags)
+
+    counter.sort_by {|_key, value| value}.reverse
+  end
+
+  def user_tags_used
+    tags = []
+    self.lists.each do |list|
+      list.items.each do |item|
+        item.tags.each { |tag| tags << tag }
+      end
+    end
+    tags
+  end
+
+  def tally_tags(tags)
+    counter = {}
+    tags.each do |t|
+      if counter[t.name]
+        counter[t.name] = counter[t.name] + 1
+      else
+        counter[t.name] = 1
+      end
+    end
+    counter
+  end
 end
