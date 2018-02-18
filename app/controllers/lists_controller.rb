@@ -12,8 +12,4 @@ class ListsController < ApplicationController
     @item = @list.items.build #prebuild an item for form to wrap around
   end
 
-  def todays_list
-    @list = current_user.todays_list
-  end
-
 end
