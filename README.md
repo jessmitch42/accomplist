@@ -13,7 +13,8 @@ I used to work in mental health services so I know from all the people I've met 
 # Technical Details
 
 ## Models/relationships
-User, List, Item, ItemTag, Tag
+User, List, Item, ItemTag, Tag.
+
 Items and tags have a many to many relationship. Items belong to lists, lists belong to users.
 
 ##Authentication
