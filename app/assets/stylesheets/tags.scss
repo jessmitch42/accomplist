@@ -2,8 +2,15 @@
   padding-left: 0;
   width: 325px;
 
+  li {
+    line-height: 1.7rem;
+  }
+
   li:nth-child(odd) {
     background: white;
-    line-height: 1.5rem;
+  }
+
+  .tag_name {
+    font-size: 1.5rem;
   }
 }
