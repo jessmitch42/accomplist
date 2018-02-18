@@ -1,4 +1,4 @@
-# README
+# AccompList: Taking Cred for Little Victories
 
 ## Usage
 Fork, bundle install, db:migrate, db:seed (for dummy data)
@@ -6,11 +6,9 @@ Fork, bundle install, db:migrate, db:seed (for dummy data)
 <img src="/app/assets/images/landingpage.png" alt="Welcome Page Screenshot">
 
 ## About
-I got the idea for this app from using my GitHub commit graph as daily motivation to keep working while I was feeling down for a few months.
+I got the idea for this app from using my GitHub commit graph as daily motivation to keep working while I was feeling down for a few months. My rule of getting a light green box on the board for weekdays was usually the catalyst I needed to work the rest of the day.
 
-After years of working in mental health services so I know personal goals can look drastically different for everyone. Things like getting out of bed, going for a walk to relieve anxiety, and making plans with friends when you're tempted to stay in (again) can be a big deal if you're having a tough time.
-
-I made this app for anyone wanting to visually see that they're getting stuff done over time-- stuff beyond GitHub commits. :)
+I used to work in mental health services so I know from all the people I've met that personal goals can look drastically different for everyone. I made this app for anyone wanting to visually see that they're getting stuff done over time-- all those victories beyond GitHub commits. :)
 
 # Technical Details
 
