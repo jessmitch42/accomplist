@@ -34,7 +34,7 @@ The app currently allows users to sign in and see a colour-coded calendar for th
 <img src="/app/assets/images/listshow.png" alt="List Item Form Screenshot">
 
 ## Error Handling
-I generalized the error handling to redirect back to the root path if there's an ActiveRecord error or if a random path is entered. This could use some refining eventually but the goal here was to have a catch all for any issues I haven't already planned for.
+Form submission errors will render the "Add Item" form with a highlighted error message (e.g. "title cannot be blank"). Devise supplies built in error messages for user login/signup messages. For anything else, I generalized error handling to redirect back to the root path if there's an ActiveRecord error or if a random path is entered. This could use some refining eventually but the goal here was to have a catch all for any issues I haven't already planned for.
 
 ## Next Steps
 This app was meant to be an MVP product. Next steps would be improving responsiveness on mobile screens, making items editable, expanding OmniAuth options for logins, and making the '/tags' page have links to associated lists.
