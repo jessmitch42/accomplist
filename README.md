@@ -8,7 +8,7 @@ Fork, clone, bundle install, db:migrate, db:seed (for dummy data)
 ## About
 I got the idea for this app from using my GitHub commit graph as daily motivation to keep working while I was feeling down for a few months. My rule of getting a light green box on the board for weekdays was usually the catalyst I needed to work the rest of the day.
 
-I used to work in mental health services so I know from all the people I've met that personal goals can look drastically different for everyone. I made this app for anyone wanting to visually see that they're getting stuff done over time-- all those victories beyond GitHub commits. :)
+Knowing that personal goals can look drastically different for everyone, I made this app for anyone wanting to visually see that they're getting stuff done over time-- all those little and big victories beyond GitHub commits. :)
 
 # Technical Details
 
