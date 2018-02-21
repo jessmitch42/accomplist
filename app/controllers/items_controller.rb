@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @list = find_user_list_by_id(current_user.lists, params[:list_id])
+    @list = find_user_list_by_id(user_lists, params[:list_id])
     @items = @list.items
   end
 

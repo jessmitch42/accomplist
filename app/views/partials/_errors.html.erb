@@ -1,5 +1,5 @@
 <% if item.errors.any? %>
-  <div id="error_explanation">
+  <div id="error_explanation" class="fields_with_errors">
     <ul>
     <% item.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
