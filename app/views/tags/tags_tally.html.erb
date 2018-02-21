@@ -1,6 +1,6 @@
 <h1 class="page-header">Your Most Used Tags</h1>
 <ul class="tags-list">
   <% current_user.user_tags_sorted.each do |tag| %>
-  <li><span class="tag_name"><%= tag[0] %></span> was used in <%= tag[1] %> posts</li>
+  <li><span class="tag_name"><%= tag[0] %></span> was used in <%= tag[1] %> <%= "post".pluralize(tag[1]) %></li>
   <% end %>
 </ul>
