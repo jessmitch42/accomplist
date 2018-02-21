@@ -23,4 +23,8 @@ class Item < ApplicationRecord
    end
  end
 
+ def date
+   self.list.date
+ end
+
 end

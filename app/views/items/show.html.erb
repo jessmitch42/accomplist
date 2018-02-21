@@ -1,0 +1,10 @@
+<p><%= link_to list_path(@item.list) do %>
+  <i class="fas fa-long-arrow-alt-left"></i> Back
+  <% end %></p>
+
+<h2><%= formatted_date(@item.date) %></h2>
+<h3>Accomplishment: <%= @item.title %></h3>
+<p>Points: <%= @item.points %></p>
+
+
+<p><%= link_to "Delete Item", [@item.list, @item], :confirm => "Are you sure?", :method => :delete , class: "link" %></p>

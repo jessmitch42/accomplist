@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    redirect_to_list_path
+    @item = Item.find(params[:id])
   end
 
   def index

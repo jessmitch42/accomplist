@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :items # to get items ~*~RESTfully~*~
   end
 
-  get '/tags', to: 'users#most_used_tag'
+  get '/tags', to: 'users#most_used_tags'
   get '/about', to: 'static#about'
   # redirect random paths back home
   # match '*path' => redirect('/'), via: :get

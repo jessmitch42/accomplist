@@ -25,7 +25,9 @@ class User < ApplicationRecord
   end
 
   def todays_list
-    self.lists.find_or_create_by(date: Date.today)
+    list = List.find_or_create_by(date: Date.today)
+    self.lists << list
+    list
   end
 
   def find_list_by_date(date)
@@ -40,7 +42,7 @@ class User < ApplicationRecord
     self.lists.exists?
   end
 
-
+  # called in user controller
   def user_tags_sorted
     tags = self.user_tags_used
 
