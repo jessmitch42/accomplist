@@ -3,7 +3,7 @@ class List < ApplicationRecord
   has_many :items
 
   validates :date, presence: true
-  validates :date, uniqueness: true
+  validates :date, :uniqueness => {:scope => :user}
 
   def list_tags_unique #no need to display repeats
     tags = []

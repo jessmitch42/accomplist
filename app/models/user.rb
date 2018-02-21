@@ -25,9 +25,7 @@ class User < ApplicationRecord
   end
 
   def todays_list
-    list = List.find_or_create_by(date: Date.today)
-    self.lists << list
-    list
+    self.lists.find_or_create_by(date: Date.today, user_id: self.id)
   end
 
   def find_list_by_date(date)

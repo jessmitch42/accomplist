@@ -7,6 +7,4 @@ class UsersController < ApplicationController
     render 'tags/tags_tally'
   end
 
-  def index
-  end
 end
