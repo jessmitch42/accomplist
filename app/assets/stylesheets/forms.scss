@@ -13,9 +13,13 @@ form .actions input:hover {
   @include btn--hover;
 }
 
-.add-item-form {
+.item-form-header {
   max-width: $list_page-width;
   border-top: 5px solid $navy;
+}
+
+.add-item-form {
+  max-width: $list_page-width;
 
    form {
      display: flex;

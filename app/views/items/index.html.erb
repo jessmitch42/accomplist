@@ -1,0 +1,9 @@
+<h2 class="page-header">Accomplistments for <%= formatted_date(@items.first.list.date) %> </h2>
+
+<ul>
+  <% @items.each do |item| %>
+  <li><%= item.title %> | <%= item.points %> <%= "Point".pluralize(item.points) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Create New Item", new_list_item_path(@list), class: "link" %>

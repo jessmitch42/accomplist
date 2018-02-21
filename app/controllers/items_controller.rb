@@ -14,12 +14,18 @@ class ItemsController < ApplicationController
     end
   end
 
+  def new
+    @list = List.find(params[:list_id])
+    @item = @list.items.build()
+  end
+
   def show
     @item = Item.find(params[:id])
   end
 
   def index
-    redirect_to_list_path
+    @list = find_user_list_by_id(current_user.lists, params[:list_id])
+    @items = @list.items
   end
 
   def destroy

@@ -40,6 +40,14 @@ class User < ApplicationRecord
     self.lists.exists?
   end
 
+  def items
+    items = []
+    self.lists.each do |list|
+      list.items.each { |item| items << item }
+    end
+    items
+  end
+
   # called in user controller
   def user_tags_sorted
     tags = self.user_tags_used
