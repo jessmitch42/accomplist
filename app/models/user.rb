@@ -78,4 +78,5 @@ class User < ApplicationRecord
     end
     counter
   end
+
 end

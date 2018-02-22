@@ -4,3 +4,10 @@
   <li><span class="tag_name"><%= tag[0] %></span> was used in <%= tag[1] %> <%= "post".pluralize(tag[1]) %></li>
   <% end %>
 </ul>
+
+<h1 class="page-header">High Points Lists</h1>
+<ul class="tags-list">
+  <% users_high_points_lists.each do |list| %>
+  <li><span class="tag_name"><%= formatted_date(list.date) %></span>: <%= list.total_points %> <%= "Point".pluralize(list.total_points) %></li>
+  <% end %>
+</ul>

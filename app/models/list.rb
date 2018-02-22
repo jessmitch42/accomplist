@@ -15,4 +15,9 @@ class List < ApplicationRecord
     tags
   end
 
+  #not in use
+  def self.high_points
+    self.where('total_points > ?', 6)
+  end
+
 end
