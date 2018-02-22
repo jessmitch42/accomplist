@@ -48,7 +48,6 @@ class User < ApplicationRecord
     items
   end
 
-  # called in user controller
   def user_tags_sorted
     tags = self.user_tags_used
 

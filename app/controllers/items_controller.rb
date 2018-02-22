@@ -50,6 +50,7 @@ class ItemsController < ApplicationController
     redirect_to list_path(@list)
   end
 
+  #should be moved to list model i think
   def update_total_point(list, item, add = false)
     if add
       list.total_points = list.total_points + item.points

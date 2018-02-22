@@ -15,6 +15,7 @@ module ApplicationHelper
     lists.select{|l| l.id == id.to_i}.first
   end
 
+  # sets class of table cell to specify background colour
   def table_cell_colour(list)
     if list.nil? || !list.total_points || list.total_points == 0
       "colour--start"
