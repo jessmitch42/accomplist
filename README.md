@@ -39,7 +39,10 @@ Form submission errors will render the "Add Item" form with a highlighted error 
 ## Next Steps
 This app was meant to be an MVP product. Next steps would be improving responsiveness on mobile screens, making items editable, expanding OmniAuth options for logins, and making the '/tags' page have links to associated lists.
 
-# Contributing
+## Contributing
 Please feel welcome to create an issue or open a pull request with any bugs/suggestions. Keep in mind this is a project for Flatiron, though....
+
+## License
+This app is licensed under Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). 
 
 <3
