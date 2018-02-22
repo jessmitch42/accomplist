@@ -23,6 +23,29 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def edit
+    @list = List.find(params[:list_id])
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @list = List.find(params[:list_id])
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+
+    update_total_point(@list, @item, true)
+
+    redirect_to list_path(@list)
+    #
+    # if @item.save
+    #   update_total_point(@list, @item, true)
+    #
+    #   redirect_to list_path(@list)
+    # else
+    #   render 'lists/show'
+    # end
+  end
+
   def index
     @list = find_user_list_by_id(user_lists, params[:list_id])
     @items = @list.items
