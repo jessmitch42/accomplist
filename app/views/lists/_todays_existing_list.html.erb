@@ -5,4 +5,6 @@
   <h3>Accomplishments:</h3>
   <%= render partial: 'lists/list_table', locals: {list: list} %>
   <%= render partial: 'tags/tags_list', locals: {list: list} %>
+<% else %>
+  <%= render partial: 'lists/list_table', locals: {list: list} %>
 <% end %>

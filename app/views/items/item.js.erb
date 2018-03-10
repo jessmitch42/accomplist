@@ -1,0 +1,23 @@
+function Item(obj) {
+  this.id = obj.id;
+  this.title = obj.title;
+  this.list_id = obj.list_id;
+  this.points = obj.points;
+  this.tags = obj.tags || [];
+  this.listRow = () => {
+    let points = this.points <= 1 ? "Point" : "Points";
+    let row = `<tr>
+      <td><a href="/lists/${this.list_id}">${this.title}</a></td>
+      <td>${this.points} ${points}</td>
+      <td><a confirm="Are you sure?" rel="nofollow" data-method="delete" href="/lists/${this.list_id}/items/${this.id}">X</a>
+      </td>
+    </tr>`;
+    return row;
+  };
+  this.updateTableRows = () => {
+    $(".total_points_row").remove();
+    $(".user_list_table").append(this.listRow);
+    $(".user_list_table").append("<%= j render(:partial => 'comments/foobar') %>");
+  };
+
+}

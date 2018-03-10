@@ -1,7 +1,8 @@
 <table class="user_list_table">
+  <% if @list.items.first.id %>
   <% @list.items.each do |item| %>
     <% if !item.title.blank? %> <!--don't include one built for this form -->
-      <tr>
+      <tr class="total-points-row">
         <td><%= link_to item.title, list_item_path(@list, item) %></td>
         <td><%= item.points %> <%= "Point".pluralize(item.points) %></td>
         <td><%= link_to "X", [@list, item], :confirm => "Are you sure?", :method => :delete %>
@@ -10,4 +11,5 @@
     <% end %>
   <% end %>
   <%= render 'partials/total_points_tr', locals: {list: @list} %>
+  <% end %>
 </table>
