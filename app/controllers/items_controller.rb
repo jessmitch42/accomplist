@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+# added in rails assessment
   def edit
     @list = List.find(params[:list_id])
     @item = Item.find(params[:id])
@@ -45,6 +46,7 @@ class ItemsController < ApplicationController
     #   render 'lists/show'
     # end
   end
+# end of added in rails assessment
 
   def index
     @list = find_user_list_by_id(user_lists, params[:list_id])
