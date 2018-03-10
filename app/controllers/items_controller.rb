@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     if @item.save
       update_total_point(@list, @item, true)
 
-      redirect_to list_path(@list)
+      render json: @list, status: 201
     else
       render 'lists/show'
     end
