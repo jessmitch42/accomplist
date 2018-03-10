@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     if @item.save
       update_total_point(@list, @item, true)
 
-      render json: @list, status: 201
+      render json: @item, status: 201
     else
       render 'lists/show'
     end
@@ -75,7 +75,6 @@ class ItemsController < ApplicationController
     redirect_to list_path(@list)
   end
 
-  #should be moved to list model i think
   def update_total_point(list, item, add = false)
     if add
       list.total_points = list.total_points + item.points
