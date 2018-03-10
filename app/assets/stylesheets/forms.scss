@@ -18,6 +18,11 @@ form .actions input:hover {
   border-top: 5px solid $navy;
 }
 
+.item_form_errors {
+  color: #eb2027;
+  font-weight: bold;
+}
+
 .add-item-form {
   max-width: $list_page-width;
 

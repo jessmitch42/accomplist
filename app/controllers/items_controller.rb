@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
 
       render json: @item, status: 201
     else
-      render 'lists/show'
+      render :json => { :errors => @item.errors.full_messages , :status => 422 }
     end
   end
 
