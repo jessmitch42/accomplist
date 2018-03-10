@@ -1,3 +1,3 @@
 class ItemSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :title, :points, :list_id, :tags
 end

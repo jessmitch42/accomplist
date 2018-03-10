@@ -1,18 +1,6 @@
 @import 'colours';
 @import 'misc_var';
 
-.list_show_tags {
-  display: flex;
-  padding: 0 10px 20px;
-
-  div {
-    background-color: $grey;
-    color: $creme;
-    padding: 3px;
-    margin: 0 3px;
-  }
-}
-
 .user-lists-ul {
   padding-left: 0;
 
