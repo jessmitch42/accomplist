@@ -4,8 +4,15 @@
   <i class="fas fa-long-arrow-alt-left"></i> Back
   <% end %></p>
 
+<div class="show_day_container">
+  
+  <div class="todays_list_container">
+    <%= render partial: 'lists/todays_existing_list', locals: {list: @list} %>
+  </div>
 
-<%= render partial: 'lists/todays_existing_list', locals: {list: @list} %>
 
-<%= render 'items/item_form_header' %>
-<%= render 'items/form' %>
+  <div class="items_form_container">
+    <%= render 'items/form' %>
+  </div>
+
+</div>
