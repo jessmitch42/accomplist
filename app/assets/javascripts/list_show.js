@@ -1,16 +1,20 @@
-function createListItem() {
-  const newItem = {
-    "item": {
-      "title:",
-      "points",
-      "list_id",
-      "tag_ids": [], 
-      "tags_attributes":
-    }
-  };
 
-  $.post("/list/:id", newItem)
-    .done((response) => {
-      console.log(response)
-    })
-}
+$(function() {
+
+  function createListItem() {
+
+  }
+
+  $("#new_item").on("submit", function() {
+    const url = $(this).attr('action');
+    const formData = $(this).serialize();
+    console.log(formData)
+    console.log(url)
+    $.post(url, formData)
+      .done((response) => {
+        console.log(response)
+      })
+
+  })
+
+})
