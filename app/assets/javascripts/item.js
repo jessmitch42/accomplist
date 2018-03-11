@@ -1,58 +1,59 @@
 $(function() {
 
-  // creating a new item on the list show page
+// ******* ITEM CONSTRUCTOR *******
+
+function Item(obj, listPoints) {
+  this.id = obj.id;
+  this.title = obj.title;
+  this.list_id = obj.list_id;
+  this.points = obj.points;
+  this.tags = obj.tags || [];
+  this.totalListPoints = listPoints;
+  this.row = () => {
+    const points = this.points === 1 ? `${this.points} Point` : `${this.points} Points`;
+    const row = `<tr>
+      <td><a href="/lists/${this.list_id}/items/${this.id}">${this.title}</a></td>
+      <td>${points}</td>
+      <td><a confirm="Are you sure?" rel="nofollow" data-method="delete" href="/lists/${this.list_id}/items/${this.id}">X</a></td>
+    </tr>`;
+    return row;
+  }
+  this.totalPointRows = () => {
+    const row = `<tr class="total-points-row"><td></td>
+      <td>Total: ${listPoints}</td>
+      <td></td></tr>`;
+    return row;
+  }
+  this.addNewTableRows = () => {
+    console.log("table rows!")
+    $(".total-points-row").remove();
+    $(".user_list_table").append(this.row);
+    $(".user_list_table").append(this.totalPointRows);
+  }
+  this.updateTags = () => {
+    const currentTags = $(".list_show_tags div")
+      .toArray()
+      .map(function(tag) {
+        return tag.innerText;
+      })
+
+    this.tags.forEach(tag => {
+      if (!currentTags.includes(tag.name)) {
+        $(".list_show_tags").append(`<div>${tag.name}</div>`);
+      }
+    })
+  }
+}
+
+// ******* END OF ITEM CONSTRUCTOR *******
+
+// ******* AJAX CALLS *******
   $("#new_item").on("submit", function() {
     event.preventDefault();
     createListItem(this);
   })
+// ******* END OF AJAX CALLS *******
 
-
-
-
-  function Item(obj, listPoints) {
-    this.id = obj.id;
-    this.title = obj.title;
-    this.list_id = obj.list_id;
-    this.points = obj.points;
-    this.tags = obj.tags || [];
-    this.totalListPoints = listPoints;
-    this.row = () => {
-      const points = this.points === 1 ? `${this.points} Point` : `${this.points} Points`;
-      const row = `<tr>
-        <td><a href="/lists/${this.list_id}/items/${this.id}">${this.title}</a></td>
-        <td>${points}</td>
-        <td><a confirm="Are you sure?" rel="nofollow" data-method="delete" href="/lists/${this.list_id}/items/${this.id}">X</a></td>
-      </tr>`;
-      return row;
-    }
-    this.totalPointRows = () => {
-      const row = `<tr class="total-points-row"><td></td>
-        <td>Total: ${listPoints}</td>
-        <td></td></tr>`;
-      return row;
-    }
-    this.addNewTableRows = () => {
-      console.log("table rows!")
-      $(".total-points-row").remove();
-      $(".user_list_table").append(this.row);
-      $(".user_list_table").append(this.totalPointRows);
-    }
-    this.updateTags = () => {
-      const currentTags = $(".list_show_tags div")
-        .toArray()
-        .map(function(tag) {
-          return tag.innerText;
-        })
-
-      this.tags.forEach(tag => {
-        if (!currentTags.includes(tag.name)) {
-          $(".list_show_tags").append(`<div>${tag.name}</div>`);
-        }
-      })
-    }
-
-
-  }
 
   function createListItem(form) {
     const url = $(form).attr('action');
@@ -77,8 +78,6 @@ $(function() {
 
       }
     })
-
-
   }
 
 
