@@ -60,21 +60,32 @@ function Item(obj, listPoints) {
 
   $(".show-list-btn").on("click", function() {
     event.preventDefault();
-    $.get(`/last_day_items`, function(res) {
-      console.log(res);
-      if (res.items.length) {
-        const items = res.items.map(item => new Item(item));
-        console.log(items)
-        hideListBtn();
-        updateListTitle(res.list_date);
-        updateListUl(items);
-      }
-    })
+
+    getLastCreateListItems();
 
   })
 
 
 // ******* END OF AJAX CALLS *******
+
+
+// ******* items#last_day_items HELPERS *******
+
+  function getLastCreateListItems() {
+    $.get(`/last_day_items`, function(res) {
+      hideListBtn();
+      if (res.items.length) {
+        const items = res.items.map(item => new Item(item));
+        console.log(items)
+        updateListTitle(res.list_date);
+        updateListUl(items);
+      }
+      else {
+        const msg = "Oops, you don't have any lists yet."
+        updateListTitle(msg);
+      }
+    })
+  }
 
   function updateListTitle(date) {
     $(".last_list--title").text(date);
@@ -93,6 +104,9 @@ function Item(obj, listPoints) {
     $(".show-list-btn").hide();
   }
 
+  // ******* items#last_day_items HELPERS *******
+
+  // ******* last_day_items HELPERS *******
 
   function createListItem(form) {
     const url = $(form).attr('action');

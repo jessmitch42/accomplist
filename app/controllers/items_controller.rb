@@ -37,14 +37,6 @@ class ItemsController < ApplicationController
     update_total_point(@list, @item, true)
 
     redirect_to list_path(@list)
-    #
-    # if @item.save
-    #   update_total_point(@list, @item, true)
-    #
-    #   redirect_to list_path(@list)
-    # else
-    #   render 'lists/show'
-    # end
   end
 # end of added in rails assessment
 
@@ -74,22 +66,22 @@ class ItemsController < ApplicationController
 
   private
 
-  def item_params
-    params.require(:item).permit(:title, :points, :list_id, :tag_ids => [], tags_attributes: [:name])
-  end
-
-  def redirect_to_list_path
-    @list = List.find(params[:list_id])
-    redirect_to list_path(@list)
-  end
-
-  def update_total_point(list, item, add = false)
-    if add
-      list.total_points = list.total_points + item.points
-    else
-      list.total_points = list.total_points - item.points
+    def item_params
+      params.require(:item).permit(:title, :points, :list_id, :tag_ids => [], tags_attributes: [:name])
     end
-    list.save
-  end
+
+    def redirect_to_list_path
+      @list = List.find(params[:list_id])
+      redirect_to list_path(@list)
+    end
+
+    def update_total_point(list, item, add = false)
+      if add
+        list.total_points = list.total_points + item.points
+      else
+        list.total_points = list.total_points - item.points
+      end
+      list.save
+    end
 
 end
