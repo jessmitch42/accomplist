@@ -41,9 +41,10 @@ function Item(obj, listPoints) {
       }
     })
   }
-  this.createItemLi = () => {
-    const li = `<li>${this.title}: ${this.pointsStr}</li>`;
-    return li;
-  }
+}
+
+Item.prototype.createItemLi = () => {
+  const li = `<li>${this.title}: ${this.pointsStr}</li>`;
+  return li;
 }
 // ******* END OF ITEM CONSTRUCTOR *******
