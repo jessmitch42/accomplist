@@ -1,3 +1,3 @@
 class ListSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :total_points
 end

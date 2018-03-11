@@ -9,7 +9,7 @@ $(function() {
 
 
 
-  function Item(obj) {
+  function Item(obj, listPoints) {
     this.id = obj.id;
     this.title = obj.title;
     this.list_id = obj.list_id;
@@ -25,11 +25,11 @@ $(function() {
       return row;
     }
     this.totalPointRows = () => {
-      $.get(`/lists/${this.list_id}`, function(response) {
+      $.get(`/lists/${this.list_id}/get_json`, function(response) {
         console.log(response)
-        // const row = `<tr><td></td>
-        //   <td>Total: <%= @list.total_points %></td>
-        //   <td></td></tr>`
+        const row = `<tr class="total-points-row"><td></td>
+          <td>Total: ${response.total_points + this.points}</td>
+          <td></td></tr>`;
       })
 
     }
@@ -38,6 +38,8 @@ $(function() {
       $(".user_list_table").append(this.row);
       $(".user_list_table").append(this.totalPointRows);
     };
+
+
   }
 
   function createListItem(form) {
@@ -55,7 +57,6 @@ $(function() {
         clearForm();
 
         const newItem = new Item(response);
-        newItem.updateTableRows();
       }
     })
   }
