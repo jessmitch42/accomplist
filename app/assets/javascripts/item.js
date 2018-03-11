@@ -15,29 +15,41 @@ $(function() {
     this.list_id = obj.list_id;
     this.points = obj.points;
     this.tags = obj.tags || [];
+    this.totalListPoints = listPoints;
     this.row = () => {
-      const points = this.points === 1 ? "Point" : "Points";
-      const row = `<tr class="total-points-row">
-        <td><a href="/lists/${this.list_id}/items/${this.id}">trying</a></td>
-        <td>${this.points} ${points}</td>
+      const points = this.points === 1 ? `${this.points} Point` : `${this.points} Points`;
+      const row = `<tr>
+        <td><a href="/lists/${this.list_id}/items/${this.id}">${this.title}</a></td>
+        <td>${points}</td>
         <td><a confirm="Are you sure?" rel="nofollow" data-method="delete" href="/lists/${this.list_id}/items/${this.id}">X</a></td>
       </tr>`;
       return row;
     }
     this.totalPointRows = () => {
-      $.get(`/lists/${this.list_id}/get_json`, function(response) {
-        console.log(response)
-        const row = `<tr class="total-points-row"><td></td>
-          <td>Total: ${response.total_points + this.points}</td>
-          <td></td></tr>`;
-      })
-
+      const row = `<tr class="total-points-row"><td></td>
+        <td>Total: ${listPoints}</td>
+        <td></td></tr>`;
+      return row;
     }
-    this.updateTableRows = () => {
-      $(".total_points_row").remove();
+    this.addNewTableRows = () => {
+      console.log("table rows!")
+      $(".total-points-row").remove();
       $(".user_list_table").append(this.row);
       $(".user_list_table").append(this.totalPointRows);
-    };
+    }
+    this.updateTags = () => {
+      const currentTags = $(".list_show_tags div")
+        .toArray()
+        .map(function(tag) {
+          return tag.innerText;
+        })
+
+      this.tags.forEach(tag => {
+        if (!currentTags.includes(tag.name)) {
+          $(".list_show_tags").append(`<div>${tag.name}</div>`);
+        }
+      })
+    }
 
 
   }
@@ -54,11 +66,19 @@ $(function() {
         displayErrors(response.errors)
       }
       else {
-        clearForm();
+        $.get(`/lists/${response.list_id}/get_json`, function(res) {
+          console.log(res)
+          clearForm();
+          let listPoints = parseInt(res.total_points) || 0;
+          const newItem = new Item(response, listPoints);
+          newItem.addNewTableRows();
+          newItem.updateTags()
+        })
 
-        const newItem = new Item(response);
       }
     })
+
+
   }
 
 
