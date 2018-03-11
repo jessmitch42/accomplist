@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/lists/:id/show_js', to: 'lists#show_js'
 
   get '/your-tags', to: 'users#most_used_tags'
+  get '/tags', to: 'tags#index'
+
   get '/about', to: 'static#about'
   # redirect random paths back home
   match '*path' => redirect('/'), via: :get

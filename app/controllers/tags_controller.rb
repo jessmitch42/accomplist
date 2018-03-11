@@ -3,7 +3,7 @@ class TagsController < ApplicationController
 
   def index
     @tags = Tag.all
-    render json: @list
+    render json: @tags
   end
 
 end
