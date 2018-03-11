@@ -17,9 +17,9 @@ $(function() {
     $.get(url, function(res) {
       const tagStr = res
         .reduce((str, tag) => {
-          return str += `<span class="tag-name__span"> ${tag.name} | </span>`;
+          return str += ` ${tag.name} |`;
         }, "")
-        .slice(0,-2);
+        .slice(0, -2);
 
       attachTagsToDiv(tagStr)
     })
