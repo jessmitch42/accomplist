@@ -5,9 +5,10 @@ Rails.application.routes.draw do
     resources :items # to get items ~*~RESTfully~*~
   end
 
-  get "/lists/:id/get_json", to: "lists#get_json"
+  get "/lists/:id/get_list", to: "lists#get_list"
+  get '/lists/:id/show_js', to: 'lists#show_js'
+
   get '/tags', to: 'users#most_used_tags'
-  get '/last_day_items', to: 'items#last_day_items'
   get '/about', to: 'static#about'
   # redirect random paths back home
   match '*path' => redirect('/'), via: :get

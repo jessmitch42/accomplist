@@ -16,4 +16,12 @@ class ListsController < ApplicationController
     render json: @list
   end
 
+  def show_js
+    list = List.find(params[:id])
+    @date = formatted_date(list.date)
+    @items = list.items
+    render :json => {:list_date => @date,
+                     :items => @items }
+  end
+
 end

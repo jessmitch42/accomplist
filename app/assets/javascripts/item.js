@@ -1,4 +1,4 @@
-$(function() {
+$(document).on("ready", function() {
 
 // ******* ITEM CONSTRUCTOR *******
 
@@ -55,13 +55,17 @@ function Item(obj, listPoints) {
 
   $("#new_item").on("submit", function() {
     event.preventDefault();
+    console.log("here prevent")
     createListItem(this);
   })
 
-  $(".show-list-btn").on("click", function() {
+  $(".view-list__button").on("click", function() {
     event.preventDefault();
-
-    getLastCreateListItems();
+    const id = $(this).data("id");
+    const url = $(this).attr("href");
+    console.log(id)
+    console.log(url)
+    getList(id, url);
 
   })
 
@@ -71,10 +75,10 @@ function Item(obj, listPoints) {
 
 // ******* items#last_day_items HELPERS *******
 
-  function getLastCreateListItems() {
-    $.get(`/last_day_items`, function(res) {
-      hideListBtn();
-      if (res.items.length) {
+  function getList(id, url) {
+    $.get(url, function(res) {
+      console.log(res)
+      if (res.items && res.items.length) {
         const items = res.items.map(item => new Item(item));
         console.log(items)
         updateListTitle(res.list_date);
@@ -92,17 +96,14 @@ function Item(obj, listPoints) {
   }
 
   function updateListUl(arr) {
+    $(".last-list-items-ul").empty();
     const str = arr.reduce((acc, item) => {
       // console.log(item.createItemLi)
       return acc += item.createItemLi();
     }, "")
-    console.log(str)
     $(".last-list-items-ul").append(str);
   }
 
-  function hideListBtn() {
-    $(".show-list-btn").hide();
-  }
 
   // ******* items#last_day_items HELPERS *******
 
@@ -114,12 +115,13 @@ function Item(obj, listPoints) {
 
     $.post(url, formData, function(response) {
       enableFormSubmit();
-
+      console.log(response)
       if (response.errors) {
         displayErrors(response.errors)
       }
       else {
         $.get(`/lists/${response.list_id}/get_list`, function(res) {
+          console.log(res)
           const listPoints = parseInt(res.total_points) || 0;
           const newItem = new Item(response, listPoints);
 
