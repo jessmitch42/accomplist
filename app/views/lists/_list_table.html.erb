@@ -2,12 +2,15 @@
   <% if @list.items.first.id %>
   <% @list.items.each do |item| %>
     <% if !item.title.blank? %> <!--don't include one built for this form -->
+
+    <!-- TODO:get item row partial to work here  -->
       <tr class="total-points-row">
         <td><%= link_to item.title, list_item_path(@list, item) %></td>
         <td><%= item.points %> <%= "Point".pluralize(item.points) %></td>
         <td><%= link_to "X", [@list, item], :confirm => "Are you sure?", :method => :delete %>
         </td>
       </tr>
+
     <% end %>
   <% end %>
   <%= render 'partials/total_points_tr', locals: {list: @list} %>
