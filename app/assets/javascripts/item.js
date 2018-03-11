@@ -25,7 +25,6 @@ function Item(obj, listPoints) {
     return row;
   }
   this.addNewTableRows = () => {
-    console.log("table rows!")
     $(".total-points-row").remove();
     $(".user_list_table").append(this.row);
     $(".user_list_table").append(this.totalPointRows);
@@ -67,7 +66,7 @@ function Item(obj, listPoints) {
         displayErrors(response.errors)
       }
       else {
-        $.get(`/lists/${response.list_id}/get_json`, function(res) {
+        $.get(`/lists/${response.list_id}/get_list`, function(res) {
           console.log(res)
           clearForm();
           let listPoints = parseInt(res.total_points) || 0;

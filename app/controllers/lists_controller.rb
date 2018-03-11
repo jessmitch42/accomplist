@@ -11,7 +11,7 @@ class ListsController < ApplicationController
     @item = @list.items.build #prebuild an item for form to wrap around
   end
 
-  def get_json
+  def get_list
     @list = List.find(params[:id])
     render json: @list
   end
