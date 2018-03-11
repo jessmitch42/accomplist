@@ -64,6 +64,12 @@ class ItemsController < ApplicationController
     redirect_to list_path(@list)
   end
 
+  def last_day_items
+    list = List.all.last
+    @items = list.items
+    render json: @items
+  end
+
   private
 
   def item_params

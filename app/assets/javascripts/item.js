@@ -53,12 +53,20 @@ function Item(obj, listPoints) {
     createListItem(this);
   })
 
-  $("#showLastListItems").on("click", function() {
-    fetch("/last-day-items ")
-      .then( resp => console.log(resp.json()))
+  $(".show-list-btn").on("click", function() {
+
+    $.get(`/last_day_items`, function(resp) {
+      console.log(resp);
+    })
+
   })
 
+
 // ******* END OF AJAX CALLS *******
+
+  function hideShowListBtn() {
+    $(".show-list-btn").hide();
+  }
 
 
   function createListItem(form) {
@@ -79,7 +87,7 @@ function Item(obj, listPoints) {
           let listPoints = parseInt(res.total_points) || 0;
           const newItem = new Item(response, listPoints);
           newItem.addNewTableRows();
-          newItem.updateTags()
+          newItem.updateTags();
         })
 
       }
