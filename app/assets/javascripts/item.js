@@ -43,14 +43,21 @@ function Item(obj, listPoints) {
     })
   }
 }
-
 // ******* END OF ITEM CONSTRUCTOR *******
 
+
 // ******* AJAX CALLS *******
+
   $("#new_item").on("submit", function() {
     event.preventDefault();
     createListItem(this);
   })
+
+  $("#showLastListItems").on("click", function() {
+    fetch("/last-day-items ")
+      .then( resp => console.log(resp.json()))
+  })
+
 // ******* END OF AJAX CALLS *******
 
 

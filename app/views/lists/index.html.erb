@@ -6,10 +6,19 @@
   <%= link_to "Check out your most used tags", tags_path, class: "link" %>
   <% end %>
 
-  <h2>Your Lists:</h2>
 
-  <%= render 'lists_ul' %>
 
+  <div class="index_and_last_list_container">
+    <div class="list_index_container">
+      <%= render 'lists_ul' %>
+    </div>
+
+    <div class="last_list_container">
+      <h2>  </h2>
+      <button id="showLastListItems" class="show-list-btn">See Your Last List</button>
+      <ul class="last_list_items_ul"></ul>
+    </div>
+  </div>
 
 <% if !current_user.has_list_today? %>
 

@@ -1,5 +1,6 @@
 @import 'colours';
 @import 'misc_var';
+@import 'mixins';
 
 .user-lists-ul {
   padding-left: 0;
@@ -37,4 +38,12 @@
     color: $peach;
     transtion: 0.1s ease-in-out;
   }
+}
+
+.show-list-btn {
+  @include form-btn;
+}
+
+.show-list-btn:hover {
+  @include btn--hover;
 }
