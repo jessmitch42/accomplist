@@ -8,16 +8,18 @@
 
 
 
-  <div class="index_and_last_list_container">
-    <div class="list_index_container">
+  <div class="index_and_last_list--container">
+
+    <div class="list_index--container">
       <%= render 'lists_ul' %>
     </div>
 
-    <div class="last_list_container">
-      <h2>  </h2>
+    <div class="last_list--container">
+      <h2 class="last_list--title"></h2>
       <button class="show-list-btn">See Your Last List</button>
-      <ul class="last_list_items_ul"></ul>
+      <ul class="last-list-items-ul"></ul>
     </div>
+
   </div>
 
 <% if !current_user.has_list_today? %>

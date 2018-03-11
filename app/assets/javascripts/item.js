@@ -3,17 +3,18 @@ $(function() {
 // ******* ITEM CONSTRUCTOR *******
 
 function Item(obj, listPoints) {
+  console.log(listPoints)
   this.id = obj.id;
   this.title = obj.title;
   this.list_id = obj.list_id;
   this.points = obj.points;
+  this.pointsStr = this.points === 1 ? `${this.points} Point` : `${this.points} Points`;
   this.tags = obj.tags || [];
   this.totalListPoints = listPoints;
   this.row = () => {
-    const points = this.points === 1 ? `${this.points} Point` : `${this.points} Points`;
     const row = `<tr>
       <td><a href="/lists/${this.list_id}/items/${this.id}">${this.title}</a></td>
-      <td>${points}</td>
+      <td>${this.pointsStr}</td>
       <td><a confirm="Are you sure?" rel="nofollow" data-method="delete" href="/lists/${this.list_id}/items/${this.id}">X</a></td>
     </tr>`;
     return row;
@@ -42,6 +43,10 @@ function Item(obj, listPoints) {
       }
     })
   }
+  this.createItemLi = () => {
+    const li = `<li>${this.title}: ${this.pointsStr}</li>`;
+    return li;
+  }
 }
 // ******* END OF ITEM CONSTRUCTOR *******
 
@@ -54,9 +59,16 @@ function Item(obj, listPoints) {
   })
 
   $(".show-list-btn").on("click", function() {
-
-    $.get(`/last_day_items`, function(resp) {
-      console.log(resp);
+    event.preventDefault();
+    $.get(`/last_day_items`, function(res) {
+      console.log(res);
+      if (res.items.length) {
+        const items = res.items.map(item => new Item(item));
+        console.log(items)
+        hideListBtn();
+        updateListTitle(res.list_date);
+        updateListUl(items);
+      }
     })
 
   })
@@ -64,7 +76,20 @@ function Item(obj, listPoints) {
 
 // ******* END OF AJAX CALLS *******
 
-  function hideShowListBtn() {
+  function updateListTitle(date) {
+    $(".last_list--title").text(date);
+  }
+
+  function updateListUl(arr) {
+    const str = arr.reduce((acc, item) => {
+      // console.log(item.createItemLi)
+      return acc += item.createItemLi();
+    }, "")
+    console.log(str)
+    $(".last-list-items-ul").append(str);
+  }
+
+  function hideListBtn() {
     $(".show-list-btn").hide();
   }
 
@@ -74,7 +99,6 @@ function Item(obj, listPoints) {
     const formData = $(form).serialize();
 
     $.post(url, formData, function(response) {
-      console.log(response)
       enableFormSubmit();
 
       if (response.errors) {
@@ -82,10 +106,10 @@ function Item(obj, listPoints) {
       }
       else {
         $.get(`/lists/${response.list_id}/get_list`, function(res) {
-          console.log(res)
-          clearForm();
-          let listPoints = parseInt(res.total_points) || 0;
+          const listPoints = parseInt(res.total_points) || 0;
           const newItem = new Item(response, listPoints);
+
+          clearForm();
           newItem.addNewTableRows();
           newItem.updateTags();
         })

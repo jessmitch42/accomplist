@@ -66,8 +66,10 @@ class ItemsController < ApplicationController
 
   def last_day_items
     list = List.all.last
+    @date = formatted_date(list.date)
     @items = list.items
-    render json: @items
+    render :json => {:list_date => @date,
+                     :items => @items }
   end
 
   private
