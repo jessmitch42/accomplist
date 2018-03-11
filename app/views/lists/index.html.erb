@@ -3,7 +3,7 @@
   <%= render 'partials/table' %>
 
   <% if current_user.has_lists? %>
-  <%= link_to "Check out your most used tags", tags_path, class: "link" %>
+  <%= link_to "Check out your most used tags", '/your-tags', class: "link" %>
   <% end %>
 
 

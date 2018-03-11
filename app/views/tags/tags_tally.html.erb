@@ -1,13 +1,19 @@
-<h1 class="page-header">Your Most Used Tags</h1>
-<ul class="tags-list">
-  <% @sorted_tags.each do |tag| %>
-  <li><span class="tag_name"><%= tag[0] %></span> was used in <%= tag[1] %> <%= "post".pluralize(tag[1]) %></li>
-  <% end %>
-</ul>
+<div class="tags__container">
+  <div class="most-used">
+    <h1 class="page-header">Your Most Used Tags</h1>
+    <ul class="tags-list">
+      <% @sorted_tags.each do |tag| %>
+      <li><span class="tag_name"><%= tag[0] %></span> was used in <%= tag[1] %> <%= "post".pluralize(tag[1]) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="high-points">
+    <h1 class="page-header">High Points Lists</h1>
+    <ul class="tags-list">
+      <% users_high_points_lists.each do |list| %>
+      <li><span class="tag_name"><%= list.total_points %> <%= "Point".pluralize(list.total_points) %></span>: <%= formatted_date(list.date) %></li>
+      <% end %>
+    </ul>
 
-<h1 class="page-header">High Points Lists</h1>
-<ul class="tags-list">
-  <% users_high_points_lists.each do |list| %>
-  <li><span class="tag_name"><%= list.total_points %> <%= "Point".pluralize(list.total_points) %></span>: <%= formatted_date(list.date) %></li>
-  <% end %>
-</ul>
+  </div>
+</div>
