@@ -15,10 +15,20 @@ $(function() {
 
   function getAllTags(url) {
     $.get(url, function(res) {
-      console.log(res)
-      res.map
+      const tagStr = res
+        .reduce((str, tag) => {
+          return str += `<span class="tag-name__span"> ${tag.name} | </span>`;
+        }, "")
+        .slice(0,-2);
+
+      attachTagsToDiv(tagStr)
     })
   };
+
+  function attachTagsToDiv(str) {
+    $(".all-tags__container").empty();
+    $(".all-tags__container").append(str);
+  }
 
   // ******* END OF tags#index HELPERS *******
 
