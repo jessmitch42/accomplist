@@ -4,10 +4,9 @@ $(function() {
 
     $(".view-list__button").on("click", function() {
       event.preventDefault();
-      const id = $(this).data("id");
       const url = $(this).attr("href");
 
-      getList(id, url);
+      getList(url);
     })
 
   // ******* END OF AJAX CALLS *******
@@ -16,7 +15,12 @@ $(function() {
 
   // ******* lists#show_js HELPERS *******
 
-    function getList(id, url) {
+    function getList(url) {
+      // *** Ask about fetch vs get here (fetch needs authentication info) ***
+      // fetch(url)
+      // .then(res => console.log(res))
+      // .then(res => console.log(res))
+      // .catch(err => console.log(err))
       $.get(url, function(res) {
         console.log(res)
         if (res.items && res.items.length) {
