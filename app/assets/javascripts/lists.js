@@ -33,6 +33,7 @@ $(function() {
     }
 
     function updateListTitle(date) {
+      console.log("herreeee" + date)
       $(".last_list--title").text(date);
     }
 
@@ -42,6 +43,7 @@ $(function() {
         // console.log(item.createItemLi)
         return acc += item.createItemLi();
       }, "")
+      console.log(str)
       $(".last-list-items-ul").append(str);
     }
     // ******* lists#show_js HELPERS *******

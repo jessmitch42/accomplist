@@ -1,14 +1,12 @@
-// ******* ITEM CONSTRUCTOR *******
+// ******* ITEM MODEL OBJECT *******
 
-function Item(obj, listPoints) {
-  console.log(listPoints)
+function Item(obj) {
   this.id = obj.id;
   this.title = obj.title;
   this.list_id = obj.list_id;
   this.points = obj.points;
   this.pointsStr = this.points === 1 ? `${this.points} Point` : `${this.points} Points`;
   this.tags = obj.tags || [];
-  this.totalListPoints = listPoints;
   this.row = () => {
     const row = `<tr>
       <td><a href="/lists/${this.list_id}/items/${this.id}">${this.title}</a></td>
@@ -17,16 +15,9 @@ function Item(obj, listPoints) {
     </tr>`;
     return row;
   }
-  this.totalPointRows = () => {
-    const row = `<tr class="total-points-row"><td></td>
-      <td>Total: ${listPoints}</td>
-      <td></td></tr>`;
-    return row;
-  }
   this.addNewTableRows = () => {
     $(".total-points-row").remove();
     $(".user_list_table").append(this.row);
-    $(".user_list_table").append(this.totalPointRows);
   }
   this.updateTags = () => {
     const currentTags = $(".list_show_tags div")
@@ -41,10 +32,16 @@ function Item(obj, listPoints) {
       }
     })
   }
+  this.createItemLi = () => {
+    const li = `<li>${this.title}: ${this.pointsStr}</li>`;
+    return li;
+  }
 }
 
-Item.prototype.createItemLi = () => {
-  const li = `<li>${this.title}: ${this.pointsStr}</li>`;
-  return li;
+Item.prototype.addTotalPointRows = (listPoints) => {
+  const row = `<tr class="total-points-row"><td></td>
+    <td>Total: ${listPoints}</td>
+    <td></td></tr>`;
+  $(".user_list_table").append(row);
 }
-// ******* END OF ITEM CONSTRUCTOR *******
+// ******* END OF ITEM MODEL OBJECT *******

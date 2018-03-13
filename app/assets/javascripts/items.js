@@ -28,11 +28,11 @@ $(function() {
       else {
         $.get(`/lists/${response.list_id}/get_list`, function(res) {
           console.log(res)
-          const listPoints = parseInt(res.total_points) || 0;
-          const newItem = new Item(response, listPoints);
+          const newItem = new Item(response);
 
           clearForm();
           newItem.addNewTableRows();
+          newItem.addTotalPointRows(res.total_points)
           newItem.updateTags();
         })
 
