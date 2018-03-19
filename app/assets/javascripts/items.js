@@ -20,12 +20,13 @@ $(function() {
     const formData = $(form).serialize();
 
     $.post(url, formData, function(response) {
-      enableFormSubmit();
       console.log(response)
       if (response.errors) {
-        displayErrors(response.errors)
+        displayErrors(response.errors);
+        enableFormSubmit();
       }
       else {
+        enableFormSubmit();
         $.get(`/lists/${response.list_id}/get_list`, function(res) {
           console.log(res)
           const newItem = new Item(response);
@@ -43,7 +44,7 @@ $(function() {
 
 
   function enableFormSubmit() {
-    $("#new_item input[type=submit]").attr("disabled", false);
+    $("#new_item input[name=commit]").attr("disabled", false);
   }
   function clearForm() {
     $("#item_title").val("");
