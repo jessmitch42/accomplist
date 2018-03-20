@@ -16,6 +16,18 @@ $(function() {
   function getAllTags(url) {
     $.get(url, function(res) {
       const tagStr = res
+        .sort((a, b) => {
+          // console.log(a)
+          if (a.name.toUpperCase() < b.name.toUpperCase()) {
+            return -1;
+          }
+          else if (a.name.toUpperCase() > b.name.toUpperCase()) {
+            return 1;
+          }
+          else{
+            return 0;
+          }
+        })
         .reduce((str, tag) => {
           return str += ` ${tag.name} |`;
         }, "")

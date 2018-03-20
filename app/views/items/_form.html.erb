@@ -1,10 +1,10 @@
 <h3 class="item-form-header">Add a New Accomplishment for <%= formatted_date(@list.date) %>:</h3>
 <p class="item_form_errors"></p>
-<!-- array shorthand for "@item, :url => list_items_path(@list)" -->
+
 <div class="add-item-form">
 
   <%= render partial: 'partials/errors', locals: {item: @item} %>
-
+<!-- array shorthand for "@item, :url => list_items_path(@list)" -->
   <%= form_for([@list, @item]) do |f| %>
     <%= f.label "Accomplishment/Title:" %>
     <%= f.text_area :title %> <br>

@@ -3,15 +3,15 @@
 function Item(obj) {
   this.id = obj.id;
   this.title = obj.title;
-  this.list_id = obj.list_id;
+  this.listId = obj.list_id;
   this.points = obj.points;
   this.pointsStr = this.points === 1 ? `${this.points} Point` : `${this.points} Points`;
   this.tags = obj.tags || [];
   this.row = () => {
     const row = `<tr>
-      <td><a href="/lists/${this.list_id}/items/${this.id}">${this.title}</a></td>
+      <td><a href="/lists/${this.listId}/items/${this.id}">${this.title}</a></td>
       <td>${this.pointsStr}</td>
-      <td><a confirm="Are you sure?" rel="nofollow" data-method="delete" href="/lists/${this.list_id}/items/${this.id}">X</a></td>
+      <td><a confirm="Are you sure?" rel="nofollow" data-method="delete" href="/lists/${this.listId}/items/${this.id}">X</a></td>
     </tr>`;
     return row;
   }

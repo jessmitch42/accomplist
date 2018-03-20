@@ -5,7 +5,6 @@ $(function() {
 
   $("#new_item").on("submit", function() {
     event.preventDefault();
-    console.log("here prevent")
     createListItem(this);
   })
 
@@ -20,7 +19,7 @@ $(function() {
     const formData = $(form).serialize();
 
     $.post(url, formData, function(response) {
-      console.log(response)
+      //console.log(response)
       if (response.errors) {
         displayErrors(response.errors);
         enableFormSubmit();
@@ -28,7 +27,7 @@ $(function() {
       else {
         enableFormSubmit();
         $.get(`/lists/${response.list_id}/get_list`, function(res) {
-          console.log(res)
+          //console.log(res)
           const newItem = new Item(response);
 
           clearForm();
