@@ -10,6 +10,11 @@ I got the idea for this app from using my GitHub commit graph as daily motivatio
 
 Knowing that personal goals can look drastically different for everyone, I made this app for anyone wanting to visually see that they're getting stuff done over time-- all those little and big victories beyond GitHub commits. :)
 
+## Check It Out
+I deployed Accomplist using Heroku at https://accomplist-app.herokuapp.com/
+
+Note: The Facebook login only works if you've already create an Accomplist account through the regular sign-up. I'd rather keep the FB integration in dev mode.
+
 ## This Version
 This version of Accomplist is the second iteration. It uses a jQuery implementation in the frontend to allow for data updating/retrieval through AJAX requests. This allows the individual lists to be browsed from the list#index page. It also allows items to be created on the list#show page without refreshing the page, and it gives the user an option to see all the tags in the database if they're stumped on what new tags to create. To see the original version (Rails only), please checkout the branch "no-jquery".
 
