@@ -10,8 +10,8 @@ I got the idea for this app from using my GitHub commit graph as daily motivatio
 
 Knowing that personal goals can look drastically different for everyone, I made this app for anyone wanting to visually see that they're getting stuff done over time-- all those little and big victories beyond GitHub commits. :)
 
-## This Branch
-This branch uses a jQuery implementation in the frontend. This allows the individual lists to be browsed from the list#index page. It also allows items to be created on the list#show page without refreshing the page, and it gives the user an option to see all the tags in the database if they're stumped on what new tags to create.
+## This Version
+This version of Accomplist is the second iteration. It uses a jQuery implementation in the frontend to allow for data updating/retrieval through AJAX requests. This allows the individual lists to be browsed from the list#index page. It also allows items to be created on the list#show page without refreshing the page, and it gives the user an option to see all the tags in the database if they're stumped on what new tags to create. To see the original version (Rails only), please checkout the branch "no-jquery".
 
 
 # Technical Details
@@ -33,7 +33,7 @@ Validations are fairly simple. Basically every field is required and must be uni
 <img src="/app/assets/images/listindex-jquery.png" alt="Lists Page Screenshot">
 
 ## User Journey
-The app currently allows users to sign in and see a colour-coded calendar for the year 2018. Days that were more productive are darker colours. The user can view their existing lists (one per day) or start a new list for today. Lists can have items (or "accomplishments") added to them. Each item can have extra points given it if it was a big accomplishment, but the default is one point per item. Tags can be added when the item is added to a list. The tags are viewable under each day's list. 
+The app currently allows users to sign in and see a colour-coded calendar for the year 2018. Days that were more productive are darker colours. The user can view their existing lists (one per day) or start a new list for today. Lists can have items (or "accomplishments") added to them. Each item can have extra points given it if it was a big accomplishment, but the default is one point per item. Tags can be added when the item is added to a list. The tags are viewable under each day's list.
 
 <img src="/app/assets/images/listshow-jquery.png" alt="List Item Form Screenshot">
 
